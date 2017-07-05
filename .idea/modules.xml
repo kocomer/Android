@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android.iml" filepath="$PROJECT_DIR$/Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-core/android-core.iml" filepath="$PROJECT_DIR$/android-core/android-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-corporation/android-corporation.iml" filepath="$PROJECT_DIR$/android-corporation/android-corporation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-flow/android-flow.iml" filepath="$PROJECT_DIR$/android-flow/android-flow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-live/android-live.iml" filepath="$PROJECT_DIR$/android-live/android-live.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-map/android-map.iml" filepath="$PROJECT_DIR$/android-map/android-map.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-wechat/android-wechat.iml" filepath="$PROJECT_DIR$/android-wechat/android-wechat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volley-master/volley-master.iml" filepath="$PROJECT_DIR$/volley-master/volley-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxing/zxing.iml" filepath="$PROJECT_DIR$/zxing/zxing.iml" />
+    </modules>
+  </component>
+</project>
