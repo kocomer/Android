@@ -14,57 +14,59 @@ import com.android.volley.analysis.Analysis;
 import com.google.zxing.client.android.CaptureActivity;
 import com.kocomer.core.analysis.CellsAnalysis;
 import com.kocomer.core.entity.CellsEntity;
+import com.kocomer.core.entity.ModulesEntity;
+import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.core.fragment.PageFragment;
 import com.kocomer.wechat.R;
 import com.kocomer.wechat.analysis.WechatAnalysis;
 import com.kocomer.wechat.entity.WechatEntity;
 import com.kocomer.wechat.fragment.cell.WechatScanMemberFragment;
+import com.kocomer.wechat.helper.WechatConstants;
 
 /**
  * Created by kocomer on 2017/3/26.
  */
 
-public class WechatFragment extends PageFragment<CellsEntity> implements View.OnClickListener {
+public class WechatFragment extends ContentFragment implements View.OnClickListener {
     private LinearLayout contentLayout;
-    private RelativeLayout scanmemberLayout;
+    private LinearLayout scanmemberLinearLayout;
 
-    @Override
-    public String getPageId() {
-        return "wechat";
-    }
+    private ModulesEntity.Module.Cell[] cells;
 
-    @Override
-    public String getURL() {
-        return "http://192.168.62.107:8080/cells.open";
-    }
-
-    @Override
-    public Analysis getAnalysis() {
-        return new CellsAnalysis();
+    public void setCells(ModulesEntity.Module.Cell[] cells) {
+        this.cells = cells;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat, null);
+        int length = cells.length;
+        for (int i = 0; i < length; i++) {
+            switch (cells[i].code) {
+                case WechatConstants.CELL_WECHAT_SCANMEMBER: {//微信扫会员卡
+                    scanmemberLinearLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_scanmember, contentLayout);
+                    scanmemberLinearLayout.setOnClickListener(this);
+                }
+                break;
+            }
+        }
         return contentLayout;
     }
 
     @Override
-    public void onPageLoaded(CellsEntity entity) {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        for (int i = 0, length = entity.cell.length; i < length; i++) {
-            CellsEntity.Cell cell = entity.cell[i];
-            if ("wechat_scanmember".equals(cell.code)) {
-                WechatScanMemberFragment wechatScanMemberFragment = new WechatScanMemberFragment();
-                ft.add(R.id.fragment_wechat_ll, wechatScanMemberFragment);
-            }
-        }
-        ft.commit();
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        scanmemberLinearLayout.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-
+        System.out.println("vvvv = " + v);
+        int i = v.getId();
+        if (i == R.id.fragment_wechat_scanmember_ll) {
+            System.out.println("scanscanscanscanscanscanscan");
+        }
     }
 }

@@ -14,13 +14,14 @@ import com.android.volley.analysis.Analysis;
 import com.android.volley.toolbox.ObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kocomer.core.helper.Constants;
+import com.kocomer.core.helper.SesssionHelper;
 import com.kocomer.core.listener.ContentListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by kocomer on 2017/3/24.
+ * 异步请求基类
  */
 
 public abstract class ContentFragment extends BaseFragment implements ContentListener {
@@ -79,7 +80,7 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
                 HashMap<String, String> headers = new HashMap<>();
                 headers.put(Constants.STR_CORPORATIONCODE, "corporationCode");
                 headers.put(Constants.STR_PLATFORMFINGER, "platformFinger");
-                headers.put(Constants.STR_DEVICESESSION, "deviceSession");
+                headers.put(Constants.STR_DEVICESESSION, SesssionHelper.getDeviceSession(getActivity()));
                 return headers;
             }
         };
@@ -104,6 +105,7 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
 
     @Override
     public void onContentError(VolleyError error) {
+        error.printStackTrace();
         showMsg("onContentError 网络错误");
     }
 }

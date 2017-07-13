@@ -27,12 +27,16 @@ import com.kocomer.core.entity.ActivityEntity;
 import com.kocomer.core.entity.LoginEntity;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.PageFragment;
+import com.kocomer.core.helper.Constants;
+import com.kocomer.core.helper.SesssionHelper;
 
 import java.util.HashMap;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
+/**
+ * 激活登录页面
+ */
 public class ActivityFragment extends PageFragment<ActivityEntity> {
     private EditText loginNameEt;
     private EditText passwordEt;
@@ -45,7 +49,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public String getURL() {
-        return "http://192.168.62.107:8080/activity.open";
+        return Constants.STR_URL + "/activity.json";
     }
 
     @Override
@@ -85,7 +89,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
                 String imei = ((TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
                 params.put("loginName", loginNameEt.getText().toString());
                 params.put("password", loginNameEt.getText().toString());
-                loadContent("http://192.168.62.107:8080/login.open", params, new LoginAnalysis());
+                loadContent(Constants.STR_URL + "/login.json", params, new LoginAnalysis());
             }
         });
         return view;
@@ -108,8 +112,8 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
         if (entity instanceof LoginEntity) {
             LoginEntity loginEntity = (LoginEntity) entity;
             System.out.println("loginEntity = " + loginEntity.userSession);
-            setUserSession(loginEntity.userSession);
 
+            SesssionHelper.setUserSession(getActivity(), loginEntity.userSession);
             FragmentManager fm = getActivity().getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.remove(this);

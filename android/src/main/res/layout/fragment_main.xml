@@ -20,7 +20,8 @@
             android:id="@+id/fragment_main_loginet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入登录名" />
+            android:hint="输入登录名"
+            android:text="test" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,7 +38,8 @@
             android:id="@+id/fragment_main_passwordet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="输入密码" />
+            android:hint="输入密码"
+            android:text="test" />
     </LinearLayout>
 
     <Button

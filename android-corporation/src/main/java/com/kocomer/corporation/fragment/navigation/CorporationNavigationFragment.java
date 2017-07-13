@@ -16,18 +16,12 @@ import com.kocomer.corporation.R;
  */
 
 public class CorporationNavigationFragment extends BaseFragment {
-    private View.OnClickListener listener;
     private RelativeLayout navitaionLayout;
-
-    public void setOnClickListener(View.OnClickListener listener) {
-        this.listener = listener;
-    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         navitaionLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_corporation_navigation, null);
-        navitaionLayout.setOnClickListener(listener);
         return navitaionLayout;
     }
 

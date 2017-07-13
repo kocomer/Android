@@ -11,8 +11,10 @@ import java.util.HashMap;
  */
 
 public interface Constants {
+    String STR_URL = "http://192.168.149.164:8080";
     String STR_CORPORATIONCODE = "corporationCode";
     String STR_PLATFORMFINGER = "platformFinger";
     String STR_USERSESSION = "userSession";
     String STR_DEVICESESSION = "deviceSession";
+
 }

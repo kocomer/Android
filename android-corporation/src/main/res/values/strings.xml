@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">platform-corporation</string>
+    <string name="corporation">公司中心</string>
+    <string name="corporationWalletAccount">corporation Account</string>
 </resources>

@@ -19,17 +19,11 @@ import com.kocomer.wechat.R;
 public class WechatNavigationFragment extends BaseFragment {
     private RelativeLayout navagationLayout;
 
-    private View.OnClickListener listener;
-
-    public void setOnClickListener(View.OnClickListener listener) {
-        this.listener = listener;
-    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         navagationLayout = (RelativeLayout) inflater.inflate(R.layout.fragment_wechat_navigation, null);
-        navagationLayout.setOnClickListener(listener);
         return navagationLayout;
     }
 

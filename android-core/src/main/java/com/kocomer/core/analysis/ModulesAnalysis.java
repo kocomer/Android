@@ -20,9 +20,18 @@ public class ModulesAnalysis implements Analysis<ModulesEntity> {
         entity.createModule(length);
         for (int i = 0; i < length; i++) {
             JSONObject mJObj = moduleJAry.getJSONObject(i);
-            entity.module[i].code = mJObj.getString("code");
-            entity.module[i].name = mJObj.getString("name");
-            entity.module[i].text = mJObj.getString("text");
+            entity.module[i].code = mJObj.optString("code");
+            entity.module[i].name = mJObj.optString("name");
+            entity.module[i].text = mJObj.optString("text");
+            JSONArray cellsJAry = mJObj.getJSONArray("cells");
+            int cellLength = cellsJAry.length();
+            entity.module[i].createCell(cellLength);
+            for (int j = 0; j < cellLength; j++) {
+                JSONObject cellJObj = cellsJAry.getJSONObject(j);
+                entity.module[i].cells[j].name = cellJObj.getString("name");
+                entity.module[i].cells[j].code = cellJObj.optString("code");
+                entity.module[i].cells[j].text = cellJObj.optString("text");
+            }
         }
         return entity;
     }

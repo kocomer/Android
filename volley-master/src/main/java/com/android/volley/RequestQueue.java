@@ -251,7 +251,6 @@ public class RequestQueue {
      * @return The passed-in request
      */
     public <T> Request<T> add(Request<T> request) {
-        System.out.println("1111111");
         // Tag the request as belonging to this queue and add it to the set of current requests.
         request.setRequestQueue(this);
         synchronized (mCurrentRequests) {

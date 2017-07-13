@@ -13,13 +13,16 @@ import com.android.volley.analysis.Analysis;
 import com.android.volley.toolbox.ObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kocomer.core.helper.Constants;
+import com.kocomer.core.helper.SesssionHelper;
 import com.kocomer.core.listener.PageListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by kocomer on 2017/3/24.
+ * 同步页面基类
+ *
+ * @param <T>
  */
 
 public abstract class PageFragment<T> extends ContentFragment implements PageListener<T> {
@@ -29,9 +32,14 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         setPageListener(this);
 
-        System.out.println("userss = " + getUserSession());
         loadPage();
     }
 
@@ -63,7 +71,7 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
                 headers.put(Constants.STR_CORPORATIONCODE, "corporationCode");
                 headers.put(Constants.STR_PLATFORMFINGER, "platformFinger");
                 headers.put(Constants.STR_DEVICESESSION, "deviceSession");
-                headers.put(Constants.STR_USERSESSION, getUserSession());
+                headers.put(Constants.STR_USERSESSION, SesssionHelper.getUserSession(getActivity()));
                 return headers;
             }
         };
