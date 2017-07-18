@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kocomer.wechat">
 
-    <application >
-
+    <application>
+        <activity android:name=".activity.WechatMemberActivity"></activity>
     </application>
 
 </manifest>

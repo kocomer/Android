@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_wechat_scanmember_ll"
+    android:id="@+id/fragment_wechat_scancard_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/fragment_wechat_scanmember_rl"
+        android:id="@+id/fragment_wechat_scancard_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/fragment_wechat_scanmember_iv"
+            android:id="@+id/fragment_wechat_scancard_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/vip" />
+            android:src="@drawable/card" />
 
         <TextView
-            android:id="@+id/fragment_wechat_scanmember_tv"
+            android:id="@+id/fragment_wechat_scancard_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragment_wechat_scanmember_iv"
+            android:layout_below="@+id/fragment_wechat_scancard_iv"
             android:layout_centerHorizontal="true"
-            android:text="扫描会员卡" />
+            android:text="扫描营销卡" />
     </RelativeLayout>
 </LinearLayout>

@@ -29,6 +29,7 @@ public class ModulesEntity {
             public String code;
             public String name;
             public String text;
+            public String url;
         }
     }
 

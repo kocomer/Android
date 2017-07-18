@@ -27,8 +27,7 @@ public class ObjectRequest<T> extends Request<T> {
 
     @Override
     public Response<T> parseNetworkResponse(NetworkResponse response) throws JSONException {
-        String json = new String(response.data);
-        JSONObject jsonObject = new JSONObject(json);
+        JSONObject jsonObject = new JSONObject(new String(response.data));
         return Response.success(analysis.analysis(jsonObject), HttpHeaderParser.parseCacheHeaders(response));
     }
 

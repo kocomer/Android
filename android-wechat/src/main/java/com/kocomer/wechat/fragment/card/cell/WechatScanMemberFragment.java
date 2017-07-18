@@ -1,4 +1,4 @@
-package com.kocomer.wechat.fragment.cell;
+package com.kocomer.wechat.fragment.card.cell;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.google.zxing.client.android.CaptureActivity;
-import com.kocomer.core.fragment.BaseFragment;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.wechat.R;
 

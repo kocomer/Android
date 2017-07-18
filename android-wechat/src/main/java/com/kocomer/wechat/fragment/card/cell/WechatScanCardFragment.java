@@ -1,4 +1,4 @@
-package com.kocomer.wechat.fragment.cell;
+package com.kocomer.wechat.fragment.card.cell;
 
 import com.kocomer.core.fragment.ContentFragment;
 

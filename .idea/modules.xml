@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android.iml" filepath="$PROJECT_DIR$/Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-alipay/android-alipay.iml" filepath="$PROJECT_DIR$/android-alipay/android-alipay.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-core/android-core.iml" filepath="$PROJECT_DIR$/android-core/android-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-corporation/android-corporation.iml" filepath="$PROJECT_DIR$/android-corporation/android-corporation.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-flow/android-flow.iml" filepath="$PROJECT_DIR$/android-flow/android-flow.iml" />

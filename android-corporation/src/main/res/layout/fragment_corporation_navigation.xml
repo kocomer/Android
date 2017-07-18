@@ -17,5 +17,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragment_corporation_nav_icon_iv"
         android:layout_centerHorizontal="true"
-        android:text="公司" />
+        android:text="公司管理" />
 </RelativeLayout>

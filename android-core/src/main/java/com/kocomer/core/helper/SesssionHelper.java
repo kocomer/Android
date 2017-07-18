@@ -37,9 +37,7 @@ public class SesssionHelper {
      * @return
      */
     public static String getUserSession(Activity activity) {
-        System.out.println("activity = " + activity);
-        SharedPreferences share = activity.getSharedPreferences(userSessionFile, MODE_PRIVATE);
-        return share.getString(userSessionKey, "");
+        return activity == null ? "" : activity.getSharedPreferences(userSessionFile, MODE_PRIVATE).getString(userSessionKey, "");
     }
 
     /**

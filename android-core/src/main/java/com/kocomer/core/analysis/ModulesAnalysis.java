@@ -31,6 +31,7 @@ public class ModulesAnalysis implements Analysis<ModulesEntity> {
                 entity.module[i].cells[j].name = cellJObj.getString("name");
                 entity.module[i].cells[j].code = cellJObj.optString("code");
                 entity.module[i].cells[j].text = cellJObj.optString("text");
+                entity.module[i].cells[j].url = cellJObj.optString("url");
             }
         }
         return entity;

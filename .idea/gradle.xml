@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/android" />
+            <option value="$PROJECT_DIR$/android-alipay" />
             <option value="$PROJECT_DIR$/android-core" />
             <option value="$PROJECT_DIR$/android-corporation" />
             <option value="$PROJECT_DIR$/android-flow" />

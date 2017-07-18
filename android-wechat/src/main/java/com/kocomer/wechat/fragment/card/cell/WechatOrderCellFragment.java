@@ -1,4 +1,4 @@
-package com.kocomer.wechat.fragment.cell;
+package com.kocomer.wechat.fragment.card.cell;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

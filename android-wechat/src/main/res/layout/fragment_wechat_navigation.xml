@@ -17,5 +17,5 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragment_wechat_navigation_icon_iv"
         android:layout_centerHorizontal="true"
-        android:text="测试" />
+        android:text="微信管理" />
 </RelativeLayout>

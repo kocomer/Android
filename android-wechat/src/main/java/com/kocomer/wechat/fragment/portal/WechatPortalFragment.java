@@ -1,4 +1,4 @@
-package com.kocomer.wechat.fragment;
+package com.kocomer.wechat.fragment.portal;
 
 /**
  * Created by kocomer on 2017/3/26.

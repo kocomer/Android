@@ -1,2 +1,2 @@
-include ':android', ':android-core', ':volley-master', ':android-map', ':android-wechat', ':android-corporation', ':android-flow', ':android-live'
+include ':android', ':android-core', ':volley-master', ':android-map', ':android-wechat', ':android-corporation', ':android-flow', ':android-live', ':android-alipay'
 include ':zxing'
