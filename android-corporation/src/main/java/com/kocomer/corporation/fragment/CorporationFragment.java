@@ -43,6 +43,18 @@ public class CorporationFragment extends ContentFragment {
                     inflater.inflate(R.layout.fragment_corporation_walletaccount, linearLayout);
                 }
                 break;
+                case CorporationConstants.CELL_CORPORATION_WECHATWITHDRAW: {
+                    inflater.inflate(R.layout.fragment_corporation_wechatwithdraw, linearLayout);
+                }
+                break;
+                case CorporationConstants.CELL_CORPORATION_ALIPAYWITHDRAW: {
+                    inflater.inflate(R.layout.fragment_corporation_alipaywithdraw, linearLayout);
+                }
+                break;
+                case CorporationConstants.CELL_CORPORATION_WALLETHISTORY: {
+                    inflater.inflate(R.layout.fragment_corporation_wallethistory, linearLayout);
+                }
+                break;
             }
         }
         return linearLayout;

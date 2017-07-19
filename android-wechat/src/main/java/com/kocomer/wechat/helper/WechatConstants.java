@@ -14,9 +14,13 @@ public interface WechatConstants {
      */
     String CELL_WECHAT_SCANCARD = "wechat_scancard";
     /**
-     * 微信扫码支付
+     * 微信会员
      */
-    String CELL_WECHAT_PAY = "wechat_pay";
+    String CELL_WECHAT_MEMBER = "wechat_member";
+    /**
+     * 微信操作历史
+     */
+    String CELL_WECHAT_HISTORY = "wechat_history";
     /**
      * 扫描会员卡
      */

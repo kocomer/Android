@@ -12,16 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.core.helper.Constants;
 import com.kocomer.core.helper.ImageCache;
 import com.kocomer.wechat.R;
 import com.kocomer.wechat.analysis.WechatMemberAnalysis;
+import com.kocomer.wechat.analysis.WechatMemberUpdateAnalysis;
 import com.kocomer.wechat.entity.WechatMemberEntity;
-
-import org.w3c.dom.Text;
+import com.kocomer.wechat.entity.WechatMemberUpdateEntity;
 
 import java.util.HashMap;
 
@@ -42,7 +41,7 @@ public class WechatMemberFragment extends ContentFragment implements View.OnClic
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_member, null);
+        contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_scanmember_member, null);
         headerIv = (ImageView) contentLayout.findViewById(R.id.fragment_wechat_member_header_iv);
         submitBtn = (Button) contentLayout.findViewById(R.id.fragment_wechat_member_submit);
         balanceEt = (EditText) contentLayout.findViewById(R.id.fragment_wechat_member_balance_et);
@@ -63,6 +62,9 @@ public class WechatMemberFragment extends ContentFragment implements View.OnClic
             ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(headerIv, R.drawable.share_via_barcode, R.drawable.launcher_icon);
             imageLoader.get(wechatMemberEntity.header, imageListener);
 
+        } else if (entity instanceof WechatMemberUpdateEntity) {
+            WechatMemberUpdateEntity wechatMemberUpdateEntity = (WechatMemberUpdateEntity) entity;
+            showMsg("更新成功");
         }
     }
 
@@ -74,6 +76,10 @@ public class WechatMemberFragment extends ContentFragment implements View.OnClic
             String balance = balanceEt.getText().toString();
             String point = pointEt.getText().toString();
 
+            HashMap<String, String> params = new HashMap<>();
+            params.put("balance", balance);
+            params.put("point", point);
+            loadContent("wechat_scanmember.json", params, new WechatMemberUpdateAnalysis());
         }
     }
 }

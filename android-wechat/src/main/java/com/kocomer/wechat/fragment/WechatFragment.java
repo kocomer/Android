@@ -19,7 +19,9 @@ import com.google.zxing.client.android.Intents;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.wechat.R;
+import com.kocomer.wechat.activity.WechatHistoryActivity;
 import com.kocomer.wechat.activity.WechatMemberActivity;
+import com.kocomer.wechat.activity.WechatScanMemberActivity;
 import com.kocomer.wechat.helper.WechatConstants;
 
 /**
@@ -27,6 +29,7 @@ import com.kocomer.wechat.helper.WechatConstants;
  */
 
 public class WechatFragment extends ContentFragment implements View.OnClickListener {
+    private LinearLayout layout;
     private LinearLayout contentLayout;
     private LinearLayout scancardLinearLayout;
 
@@ -39,45 +42,31 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat, null);
+        layout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat, null);
+        contentLayout = (LinearLayout) layout.findViewById(R.id.fragment_wechat_content_ll);
         int length = cells.length;
         for (int i = 0; i < length; i++) {
             final ModulesEntity.Module.Cell cell = cells[i];
             switch (cell.code) {
                 case WechatConstants.CELL_WECHAT_SCANMEMBER: {//微信扫会员卡
-                    inflater.inflate(R.layout.fragment_wechat_scanmember, contentLayout).findViewById(R.id.fragment_wechat_scanmember_ll).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (Build.VERSION.SDK_INT > 22) {
-                                if (ContextCompat.checkSelfPermission(getActivity(),
-                                        android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                                    //先判断有没有权限 ，没有就在这里进行权限的申请
-                                    ActivityCompat.requestPermissions(getActivity(),
-                                            new String[]{android.Manifest.permission.CAMERA}, 0);
-
-                                } else {
-                                    Intent intent = new Intent();
-                                    intent.setClass(getActivity(), CaptureActivity.class);
-                                    intent.setAction(Intents.Scan.ACTION);
-                                    startActivityForResult(intent, WechatConstants.REQUESTCODE_MEMBERCARD);
-                                }
-                            } else {
-                                Intent intent = new Intent();
-                                intent.setClass(getActivity(), CaptureActivity.class);
-                                intent.setAction(Intents.Scan.ACTION);
-                                startActivityForResult(intent, WechatConstants.REQUESTCODE_MEMBERCARD);
-                            }
-                        }
-                    });
+                    inflater.inflate(R.layout.fragment_wechat_scanmember, contentLayout).findViewById(R.id.fragment_wechat_scanmember_ll).setOnClickListener(this);
                 }
                 break;
                 case WechatConstants.CELL_WECHAT_SCANCARD: {
                     inflater.inflate(R.layout.fragment_wechat_scancard, contentLayout).findViewById(R.id.fragment_wechat_scancard_ll).setOnClickListener(this);
                 }
                 break;
+                case WechatConstants.CELL_WECHAT_MEMBER: {
+                    inflater.inflate(R.layout.fragment_wechat_member, contentLayout).findViewById(R.id.fragment_wechat_member_ll).setOnClickListener(this);
+                }
+                break;
+                case WechatConstants.CELL_WECHAT_HISTORY: {
+                    inflater.inflate(R.layout.fragment_wechat_history, contentLayout).findViewById(R.id.fragment_wechat_history_ll).setOnClickListener(this);
+                }
+                break;
             }
         }
-        return contentLayout;
+        return layout;
     }
 
     @Override
@@ -108,7 +97,7 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
                 System.out.println("result = " + result);
 
                 if (result != null && !"".equals(result)) {
-                    Intent intent = new Intent(getActivity(), WechatMemberActivity.class);
+                    Intent intent = new Intent(getActivity(), WechatScanMemberActivity.class);
                     intent.putExtra("code", result);
                     startActivity(intent);
                 }
@@ -118,18 +107,35 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
     public void onClick(View v) {
-        System.out.println("vvvv = " + v);
         int i = v.getId();
-        if (i == R.id.fragment_wechat_scanmember_ll) {
-            System.out.println("scanscanscanscanscanscanscan");
-        } else if (i == R.id.fragment_wechat_scancard_ll) {
-            System.out.println("scancardscancardscancardscancard");
+        if (i == R.id.fragment_wechat_scanmember_ll) {//点击扫描会员卡
+            if (Build.VERSION.SDK_INT > 22) {
+                if (ContextCompat.checkSelfPermission(getActivity(),
+                        android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    //先判断有没有权限 ，没有就在这里进行权限的申请
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{android.Manifest.permission.CAMERA}, 0);
+
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), CaptureActivity.class);
+                    intent.setAction(Intents.Scan.ACTION);
+                    startActivityForResult(intent, WechatConstants.REQUESTCODE_MEMBERCARD);
+                }
+            } else {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), CaptureActivity.class);
+                intent.setAction(Intents.Scan.ACTION);
+                startActivityForResult(intent, WechatConstants.REQUESTCODE_MEMBERCARD);
+            }
+
+        } else if (i == R.id.fragment_wechat_scancard_ll) {//点击扫描营销卡
+
+        } else if (i == R.id.fragment_wechat_member_ll) {//点击会员列表
+            startActivity(new Intent(getActivity(), WechatMemberActivity.class));
+        } else if (i == R.id.fragment_wechat_history_ll) {//点击操作日志
+            startActivity(new Intent(getActivity(), WechatHistoryActivity.class));
         }
     }
 }

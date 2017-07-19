@@ -31,4 +31,5 @@ dependencies {
     compile project(':android-core')
     compile project(':android-wechat')
     compile project(':android-corporation')
+    compile project(':android-pay')
 }

@@ -17,4 +17,9 @@ public interface Constants {
      * 微信营销模块
      */
     String MODULE_WECHAT = "wechat";
+    /**
+     * 支付模块
+     */
+    String MODULE_PAY = "pay";
+
 }
