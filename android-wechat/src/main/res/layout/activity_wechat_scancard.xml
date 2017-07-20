@@ -5,4 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="营销卡详情"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <fragment
+        android:name="com.kocomer.wechat.fragment.scancard.WechatScanCardFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></fragment>
 </LinearLayout>

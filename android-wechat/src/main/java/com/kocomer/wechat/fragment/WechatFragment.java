@@ -19,8 +19,8 @@ import com.google.zxing.client.android.Intents;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.wechat.R;
-import com.kocomer.wechat.activity.WechatHistoryActivity;
-import com.kocomer.wechat.activity.WechatMemberActivity;
+import com.kocomer.wechat.activity.WechatMemberListActivity;
+import com.kocomer.wechat.activity.WechatOperatorHistoryActivity;
 import com.kocomer.wechat.activity.WechatScanMemberActivity;
 import com.kocomer.wechat.helper.WechatConstants;
 
@@ -56,12 +56,12 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
                     inflater.inflate(R.layout.fragment_wechat_scancard, contentLayout).findViewById(R.id.fragment_wechat_scancard_ll).setOnClickListener(this);
                 }
                 break;
-                case WechatConstants.CELL_WECHAT_MEMBER: {
-                    inflater.inflate(R.layout.fragment_wechat_member, contentLayout).findViewById(R.id.fragment_wechat_member_ll).setOnClickListener(this);
+                case WechatConstants.CELL_WECHAT_MEMBERLIST: {
+                    inflater.inflate(R.layout.fragment_wechat_memberlist, contentLayout).findViewById(R.id.fragment_wechat_memberlist_ll).setOnClickListener(this);
                 }
                 break;
-                case WechatConstants.CELL_WECHAT_HISTORY: {
-                    inflater.inflate(R.layout.fragment_wechat_history, contentLayout).findViewById(R.id.fragment_wechat_history_ll).setOnClickListener(this);
+                case WechatConstants.CELL_WECHAT_OPERATORHISTORY: {
+                    inflater.inflate(R.layout.fragment_wechat_operatorhistory, contentLayout).findViewById(R.id.fragment_wechat_operatorhistory_ll).setOnClickListener(this);
                 }
                 break;
             }
@@ -132,10 +132,10 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
 
         } else if (i == R.id.fragment_wechat_scancard_ll) {//点击扫描营销卡
 
-        } else if (i == R.id.fragment_wechat_member_ll) {//点击会员列表
-            startActivity(new Intent(getActivity(), WechatMemberActivity.class));
-        } else if (i == R.id.fragment_wechat_history_ll) {//点击操作日志
-            startActivity(new Intent(getActivity(), WechatHistoryActivity.class));
+        } else if (i == R.id.fragment_wechat_memberlist_ll) {//点击会员列表
+            startActivity(new Intent(getActivity(), WechatMemberListActivity.class));
+        } else if (i == R.id.fragment_wechat_operatorhistory_ll) {//点击操作日志
+            startActivity(new Intent(getActivity(), WechatOperatorHistoryActivity.class));
         }
     }
 }

@@ -44,7 +44,7 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
     }
 
     private final void loadPage() {
-        Request<T> request = new ObjectRequest<T>(Request.Method.POST, getURL(), new Response.Listener<T>() {
+        Request<T> request = new ObjectRequest<T>(Request.Method.GET, getURL(), new Response.Listener<T>() {
             @Override
             public void onResponse(T response) {
                 listener.onPageAfter();

@@ -2,5 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kocomer.pay">
 
-    <application></application>
+    <application>
+        <activity android:name=".activity.PayScanAlipayActivity"></activity>
+        <activity android:name=".activity.PayScanWechatActivity"></activity>
+        <activity android:name=".activity.PayHistoryActivity"></activity>
+    </application>
 </manifest>

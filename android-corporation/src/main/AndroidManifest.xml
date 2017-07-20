@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kocomer.corporation">
 
-    <application></application>
+    <application>
+        <activity android:name=".activity.CorporationWalletHistoryActivity"></activity>
+        <activity android:name=".activity.CorporationWalletAccountActivity"></activity>
+        <activity android:name=".activity.CorporationWithdrawActivity"></activity>
+    </application>
 
 </manifest>

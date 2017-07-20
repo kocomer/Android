@@ -8,19 +8,19 @@ public interface WechatConstants {
     /**
      * 微信扫会员卡
      */
-    String CELL_WECHAT_SCANMEMBER = "wechat_scanmember";
+    String CELL_WECHAT_SCANMEMBER = "wechat_scanMember";
     /**
      * 扫描营销卡
      */
-    String CELL_WECHAT_SCANCARD = "wechat_scancard";
+    String CELL_WECHAT_SCANCARD = "wechat_scanCard";
     /**
      * 微信会员
      */
-    String CELL_WECHAT_MEMBER = "wechat_member";
+    String CELL_WECHAT_MEMBERLIST = "wechat_memberList";
     /**
      * 微信操作历史
      */
-    String CELL_WECHAT_HISTORY = "wechat_history";
+    String CELL_WECHAT_OPERATORHISTORY = "wechat_operatorHistory";
     /**
      * 扫描会员卡
      */

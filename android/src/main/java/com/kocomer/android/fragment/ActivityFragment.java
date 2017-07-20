@@ -102,6 +102,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public void onPageLoaded(ActivityEntity entity) {
+        SesssionHelper.setDeviceSession(getActivity(), entity.deviceSession);
         System.out.print(entity.deviceSession);
         System.out.println("callback");
     }

@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.google.zxing.client.android.CaptureActivity;
 import com.google.zxing.client.android.Intents;
 import com.kocomer.pay.R;
+import com.kocomer.pay.activity.PayHistoryActivity;
+import com.kocomer.pay.activity.PayScanAlipayActivity;
+import com.kocomer.pay.activity.PayScanWechatActivity;
 import com.kocomer.pay.helper.PayConstants;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
@@ -104,27 +107,12 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.fragment_pay_content_ll) {//点击扫描会员卡
-            if (Build.VERSION.SDK_INT > 22) {
-                if (ContextCompat.checkSelfPermission(getActivity(),
-                        android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    //先判断有没有权限 ，没有就在这里进行权限的申请
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{android.Manifest.permission.CAMERA}, 0);
-
-                } else {
-                    Intent intent = new Intent();
-                    intent.setClass(getActivity(), CaptureActivity.class);
-                    intent.setAction(Intents.Scan.ACTION);
-//                    startActivityForResult(intent, PayConstants.REQUESTCODE_MEMBERCARD);
-                }
-            } else {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), CaptureActivity.class);
-                intent.setAction(Intents.Scan.ACTION);
-//                startActivityForResult(intent, WechatConstants.REQUESTCODE_MEMBERCARD);
-            }
-
+        if (i == R.id.fragment_pay_scanwechat_ll) {//
+            startActivity(new Intent(getActivity(), PayScanWechatActivity.class));
+        } else if (i == R.id.fragment_pay_scanalipay_ll) {
+            startActivity(new Intent(getActivity(), PayScanAlipayActivity.class));
+        } else if (i == R.id.fragment_pay_history_ll) {
+            startActivity(new Intent(getActivity(), PayHistoryActivity.class));
         }
     }
 }

@@ -28,7 +28,17 @@ public class ObjectRequest<T> extends Request<T> {
     @Override
     public Response<T> parseNetworkResponse(NetworkResponse response) throws JSONException {
         JSONObject jsonObject = new JSONObject(new String(response.data));
-        return Response.success(analysis.analysis(jsonObject), HttpHeaderParser.parseCacheHeaders(response));
+        switch (jsonObject.getInt("result")) {
+            case 0: {
+                return Response.success(analysis.analysis(jsonObject), HttpHeaderParser.parseCacheHeaders(response));
+
+            }
+            case 1: {
+                throw new JSONException("登录超时");
+            }
+
+        }
+        throw new JSONException("服务器忙");
     }
 
     @Override

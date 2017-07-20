@@ -3,10 +3,10 @@
     package="com.kocomer.wechat">
 
     <application>
-        <activity android:name=".activity.WechatScanMemberActivity"></activity>
-        <activity android:name=".activity.WechatHistoryActivity"></activity>
-        <activity android:name=".activity.WechatMemberActivity"></activity>
-        <activity android:name=".activity.WechatScanCardActivity"></activity>
+        <activity android:name=".activity.WechatScanMemberActivity" />
+        <activity android:name=".activity.WechatOperatorHistoryActivity" />
+        <activity android:name=".activity.WechatMemberListActivity" />
+        <activity android:name=".activity.WechatScanCardActivity" />
     </application>
 
 </manifest>

@@ -10,13 +10,9 @@ public interface CorporationConstants {
      */
     String CELL_CORPORATION_WALLETACCOUNT = "corporation_walletAccount";
     /**
-     * 微信取现
+     * 微信、支付宝取现
      */
-    String CELL_CORPORATION_WECHATWITHDRAW = "corporation_wechatWithdraw";
-    /**
-     * 支付宝取现
-     */
-    String CELL_CORPORATION_ALIPAYWITHDRAW = "corporation_alipayWithdraw";
+    String CELL_CORPORATION_WITHDRAW = "corporation_withdraw";
     /**
      * 钱包记录
      */
