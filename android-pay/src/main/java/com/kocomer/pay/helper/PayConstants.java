@@ -27,4 +27,8 @@ public interface PayConstants {
      * 扫描营销卡
      */
     int REQUESTCODE_ALIPAY = 4;
+    /**
+     * 扫描支付宝付款码
+     */
+    int REQUESTCODE_ALIPAYBAR = 5;
 }

@@ -22,14 +22,14 @@ package com.android.volley;
 @SuppressWarnings("serial")
 public class NetworkError extends VolleyError {
     public NetworkError() {
-        super();
+        super(1, "网络异常");
     }
 
     public NetworkError(Throwable cause) {
-        super(cause);
+        super(1, "网络异常");
     }
 
     public NetworkError(NetworkResponse networkResponse) {
-        super(networkResponse);
+        super(1, "网络异常");
     }
 }

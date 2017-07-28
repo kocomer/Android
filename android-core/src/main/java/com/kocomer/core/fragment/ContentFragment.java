@@ -87,11 +87,10 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put(Constants.STR_CORPORATIONCODE, "corporationCode");
-                headers.put(Constants.STR_PLATFORMFINGER, "platformFinger");
-                headers.put(Constants.STR_STOREFINGER, "storeFinger");
-                headers.put(Constants.STR_DEVICESESSION, SesssionHelper.getDeviceSession(getActivity()));
-                headers.put(Constants.STR_DEVICESESSION, SesssionHelper.getDeviceSession(getActivity()));
+                headers.put(Constants.STR_CORPORATIONCODE, Constants.coropratincode);
+                headers.put(Constants.STR_PLATFORMFINGER, Constants.platformFinger);
+                headers.put(Constants.STR_STOREFINGER, Constants.storeFinger);
+                headers.put(Constants.STR_DEVICESESSION, "deviceSession");
                 headers.put(Constants.STR_USERSESSION, SesssionHelper.getUserSession(getActivity()));
                 return headers;
             }
@@ -118,6 +117,20 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
     @Override
     public void onContentError(VolleyError error) {
         error.printStackTrace();
-        showMsg("onContentError 网络错误");
+        switch (error.result) {
+            case Constants.RESULT_WARNING: {//
+                showMsg(error.message);
+            }
+            break;
+            case Constants.RESULT_REFRESH: {
+
+            }
+            break;
+            case Constants.RESULT_RELOGIN: {//重新跳转登录页面
+
+            }
+            break;
+        }
+
     }
 }

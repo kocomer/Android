@@ -23,25 +23,31 @@ import android.content.Intent;
  */
 @SuppressWarnings("serial")
 public class AuthFailureError extends VolleyError {
-    /** An intent that can be used to resolve this exception. (Brings up the password dialog.) */
+    /**
+     * An intent that can be used to resolve this exception. (Brings up the password dialog.)
+     */
     private Intent mResolutionIntent;
 
-    public AuthFailureError() { }
+    public AuthFailureError() {
+        super(1, "授权异常");
+    }
 
     public AuthFailureError(Intent intent) {
+        super(1, "授权异常");
+
         mResolutionIntent = intent;
     }
 
     public AuthFailureError(NetworkResponse response) {
-        super(response);
+        super(1, "授权异常");
     }
 
     public AuthFailureError(String message) {
-        super(message);
+        super(1, "授权异常");
     }
 
     public AuthFailureError(String message, Exception reason) {
-        super(message, reason);
+        super(1, message);
     }
 
     public Intent getResolutionIntent() {

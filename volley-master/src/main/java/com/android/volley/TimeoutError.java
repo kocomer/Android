@@ -16,8 +16,15 @@
 
 package com.android.volley;
 
+import java.sql.Time;
+
 /**
  * Indicates that the connection or the socket timed out.
  */
 @SuppressWarnings("serial")
-public class TimeoutError extends VolleyError { }
+public class TimeoutError extends VolleyError {
+    public TimeoutError() {
+        super(1, "超时异常");
+    }
+
+}

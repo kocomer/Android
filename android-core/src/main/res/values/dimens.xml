@@ -2,5 +2,6 @@
 <resources>
     <dimen name="fragment_item_margin">12dp</dimen>
     <dimen name="fragment_item_name">30sp</dimen>
+    <dimen name="fragment_item_title_name">25sp</dimen>
 
 </resources>

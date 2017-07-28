@@ -17,7 +17,8 @@ public class WechatMemberAnalysis implements Analysis<WechatMemberEntity> {
         WechatMemberEntity entity = new WechatMemberEntity();
         JSONObject memberJObj = jsonObject.getJSONObject("member");
         entity.header = memberJObj.optString("header");
-
+        entity.point = memberJObj.optString("point");
+        entity.balance = memberJObj.optString("balance");
         return entity;
     }
 }

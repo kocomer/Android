@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import com.kocomer.wechat.R;
 import com.kocomer.wechat.fragment.memberlist.WechatMemberListFragment;
 import com.kocomer.wechat.fragment.scancard.WechatScanCardFragment;
+import com.kocomer.wechat.fragment.scanmember.WechatScanMemberFragment;
 
 /**
  * 微信扫描会员卡
@@ -21,10 +22,10 @@ public class WechatScanMemberActivity extends FragmentActivity {
         setContentView(R.layout.activity_wechat_scanmember);
         String code = this.getIntent().getStringExtra("code");
         if (code != null && !"".equals(code)) {
-            WechatScanCardFragment fragment = new WechatScanCardFragment();
-            fragment.code = code;
+            WechatScanMemberFragment wechatScanMemberFragment = new WechatScanMemberFragment();
+            wechatScanMemberFragment.code = code;
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.activity_wechat_scanmember_ll, fragment);
+            transaction.replace(R.id.activity_wechat_scanmember_ll, wechatScanMemberFragment);
             transaction.commit();
         }
     }

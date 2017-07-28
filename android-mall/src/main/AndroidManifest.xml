@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.kocomer.mall">
+
+    <application>
+        <activity android:name="com.kocomer.mall.activity.MallCommodityListActivity"></activity>
+    </application>
+
+</manifest>

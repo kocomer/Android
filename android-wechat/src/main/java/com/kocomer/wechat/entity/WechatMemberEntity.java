@@ -7,4 +7,6 @@ package com.kocomer.wechat.entity;
 public class WechatMemberEntity {
     public String header;
     public String nickName;
+    public String point;
+    public String balance;
 }

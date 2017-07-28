@@ -21,13 +21,15 @@ package com.android.volley;
  */
 @SuppressWarnings("serial")
 public class ParseError extends VolleyError {
-    public ParseError() { }
+    public ParseError() {
+        super(1, "解析异常");
+    }
 
     public ParseError(NetworkResponse networkResponse) {
-        super(networkResponse);
+        super(1, "解析异常");
     }
 
     public ParseError(Throwable cause) {
-        super(cause);
+        super(1, "解析异常");
     }
 }

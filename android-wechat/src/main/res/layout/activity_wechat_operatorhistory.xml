@@ -20,6 +20,7 @@
     </LinearLayout>
 
     <fragment
+        android:id="@+id/activity_wechat_operatorhistory_fragment"
         android:name="com.kocomer.wechat.fragment.operatorhistory.WechatOperatorHistoryFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>

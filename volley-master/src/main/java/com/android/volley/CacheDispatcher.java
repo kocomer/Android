@@ -133,7 +133,7 @@ public class CacheDispatcher extends Thread {
                             new NetworkResponse(entry.data, entry.responseHeaders));
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    response = Response.error(new VolleyError());
+                    response = Response.error(new VolleyError(1, "返回格式异常"));
                 }
 
                 request.addMarker("cache-hit-parsed");

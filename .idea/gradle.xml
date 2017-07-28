@@ -12,10 +12,14 @@
             <option value="$PROJECT_DIR$/android-alipay" />
             <option value="$PROJECT_DIR$/android-core" />
             <option value="$PROJECT_DIR$/android-corporation" />
+            <option value="$PROJECT_DIR$/android-employee" />
             <option value="$PROJECT_DIR$/android-flow" />
             <option value="$PROJECT_DIR$/android-live" />
+            <option value="$PROJECT_DIR$/android-mall" />
             <option value="$PROJECT_DIR$/android-map" />
+            <option value="$PROJECT_DIR$/android-message" />
             <option value="$PROJECT_DIR$/android-pay" />
+            <option value="$PROJECT_DIR$/android-repository" />
             <option value="$PROJECT_DIR$/android-wechat" />
             <option value="$PROJECT_DIR$/volley-master" />
             <option value="$PROJECT_DIR$/zxing" />

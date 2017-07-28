@@ -148,12 +148,12 @@ public class NetworkDispatcher extends Thread {
                 request.markDelivered();
                 mDelivery.postResponse(request, response);
             } catch (VolleyError volleyError) {
-                volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
+//                volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
                 parseAndDeliverNetworkError(request, volleyError);
             } catch (Exception e) {
                 VolleyLog.e(e, "Unhandled exception %s", e.toString());
-                VolleyError volleyError = new VolleyError(e);
-                volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
+                VolleyError volleyError = new VolleyError(1, "解析异常");
+//                volleyError.setNetworkTimeMs(SystemClock.elapsedRealtime() - startTimeMs);
                 mDelivery.postError(request, volleyError);
             }
         }

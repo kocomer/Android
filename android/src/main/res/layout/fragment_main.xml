@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="输入登录名"
-            android:text="test" />
+            android:text="mifi" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="输入密码"
-            android:text="test" />
+            android:text="mifi" />
     </LinearLayout>
 
     <Button

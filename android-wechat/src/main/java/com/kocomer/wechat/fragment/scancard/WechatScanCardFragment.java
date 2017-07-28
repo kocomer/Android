@@ -19,6 +19,7 @@ import com.kocomer.core.helper.ImageCache;
 import com.kocomer.wechat.R;
 import com.kocomer.wechat.analysis.WechatMemberAnalysis;
 import com.kocomer.wechat.analysis.WechatMemberUpdateAnalysis;
+import com.kocomer.wechat.analysis.WechatScanCardAnalysis;
 import com.kocomer.wechat.entity.WechatMemberEntity;
 import com.kocomer.wechat.entity.WechatMemberUpdateEntity;
 
@@ -31,26 +32,21 @@ import java.util.HashMap;
 public class WechatScanCardFragment extends ContentFragment implements View.OnClickListener {
     public String code;//会员编码
     private LinearLayout contentLayout;
-    private ImageView headerIv;//头像
-    private TextView nickNameTv;
-    private ImageLoader imageLoader;
+    private TextView typeTv;
+    private TextView titleTv;
+    private TextView subTitleTv;
     private Button submitBtn;
-    private EditText balanceEt;
-    private EditText pointEt;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_scanmember_content, null);
-        headerIv = (ImageView) contentLayout.findViewById(R.id.fragment_wechat_member_header_iv);
-        submitBtn = (Button) contentLayout.findViewById(R.id.fragment_wechat_member_submit);
-        balanceEt = (EditText) contentLayout.findViewById(R.id.fragment_wechat_member_balance_et);
-        pointEt = (EditText) contentLayout.findViewById(R.id.fragment_wechat_member_point_et);
-
+        contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_scancard_content, null);
+        typeTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scancard_content_type_btn);
+        titleTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scancard_content_title_btn);
+        subTitleTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scancard_content_subtitle_btn);
+        submitBtn = (Button) contentLayout.findViewById(R.id.fragment_wechat_scancard_content_submit_btn);
         submitBtn.setOnClickListener(this);
-        nickNameTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_member_nickname_tv);
-        loadContent(Request.Method.GET, Constants.STR_URL + "/wechat_scanMember.json?cardCode=" + code, null, new WechatMemberAnalysis());
-        imageLoader = new ImageLoader(queue, new ImageCache());
+        loadContent(Request.Method.GET, Constants.STR_URL + "/wechat_scanCard.json?cardCode=" + code, null, new WechatScanCardAnalysis());
         return contentLayout;
     }
 
@@ -59,8 +55,6 @@ public class WechatScanCardFragment extends ContentFragment implements View.OnCl
         if (entity instanceof WechatMemberEntity) {
             WechatMemberEntity wechatMemberEntity = (WechatMemberEntity) entity;
 
-            ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(headerIv, R.drawable.share_via_barcode, R.drawable.launcher_icon);
-            imageLoader.get(wechatMemberEntity.header, imageListener);
 
         } else if (entity instanceof WechatMemberUpdateEntity) {
             WechatMemberUpdateEntity wechatMemberUpdateEntity = (WechatMemberUpdateEntity) entity;
@@ -72,14 +66,11 @@ public class WechatScanCardFragment extends ContentFragment implements View.OnCl
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.fragment_wechat_member_submit) {
-            String balance = balanceEt.getText().toString();
-            String point = pointEt.getText().toString();
+        if (id == R.id.fragment_wechat_scancard_content_submit_btn) {
 
             HashMap<String, String> params = new HashMap<>();
-            params.put("balance", balance);
-            params.put("point", point);
-            loadContent("wechat_scanmember.json", params, new WechatMemberUpdateAnalysis());
+            params.put("cardCode", code);
+            loadContent("wechat_scanCard.json", params, new WechatMemberUpdateAnalysis());
         }
     }
 }

@@ -68,8 +68,9 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put(Constants.STR_CORPORATIONCODE, "corporationCode");
-                headers.put(Constants.STR_PLATFORMFINGER, "platformFinger");
+                headers.put(Constants.STR_CORPORATIONCODE, "5bcce0b9-5478-4ab7-a0ea-a4cb0abf1577");
+                headers.put(Constants.STR_PLATFORMFINGER, "5bcce0b9-5478-4ab7-a0ea-a4cb0abf1577");
+                headers.put(Constants.STR_STOREFINGER, "storeFinger");
                 headers.put(Constants.STR_DEVICESESSION, "deviceSession");
                 headers.put(Constants.STR_USERSESSION, SesssionHelper.getUserSession(getActivity()));
                 return headers;

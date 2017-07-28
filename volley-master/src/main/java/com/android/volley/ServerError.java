@@ -22,11 +22,11 @@ package com.android.volley;
 @SuppressWarnings("serial")
 public class ServerError extends VolleyError {
     public ServerError(NetworkResponse networkResponse) {
-        super(networkResponse);
+        super(1, "服务器异常");
     }
 
     public ServerError() {
-        super();
+        super(1, "服务器异常");
     }
 }
 
