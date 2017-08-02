@@ -22,6 +22,7 @@ import com.kocomer.wechat.R;
 import com.kocomer.wechat.activity.WechatMemberListActivity;
 import com.kocomer.wechat.activity.WechatOperatorHistoryActivity;
 import com.kocomer.wechat.activity.WechatScanMemberActivity;
+import com.kocomer.wechat.fragment.cardlist.WechatCardListFragment;
 import com.kocomer.wechat.helper.WechatConstants;
 
 /**
@@ -62,6 +63,10 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
                 break;
                 case WechatConstants.CELL_WECHAT_OPERATORHISTORY: {
                     inflater.inflate(R.layout.fragment_wechat_operatorhistory, contentLayout).findViewById(R.id.fragment_wechat_operatorhistory_ll).setOnClickListener(this);
+                }
+                break;
+                case WechatConstants.CELL_WECHAT_CARDLIST: {//微信营销卡
+                    inflater.inflate(R.layout.fragment_wechat_cardlist, contentLayout).findViewById(R.id.fragment_wechat_cardlist_ll).setOnClickListener(this);
                 }
                 break;
             }
@@ -136,6 +141,9 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
             startActivity(new Intent(getActivity(), WechatMemberListActivity.class));
         } else if (i == R.id.fragment_wechat_operatorhistory_ll) {//点击操作日志
             startActivity(new Intent(getActivity(), WechatOperatorHistoryActivity.class));
+        } else if (i == R.id.fragment_wechat_cardlist_ll) {
+            startActivity(new Intent(getActivity(), WechatCardListFragment.class));
+
         }
     }
 }

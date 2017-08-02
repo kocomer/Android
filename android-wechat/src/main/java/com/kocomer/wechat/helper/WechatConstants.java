@@ -22,6 +22,10 @@ public interface WechatConstants {
      */
     String CELL_WECHAT_OPERATORHISTORY = "wechat_operatorHistory";
     /**
+     * 微信营销卡列表
+     */
+    String CELL_WECHAT_CARDLIST = "wechat_cardList";
+    /**
      * 扫描会员卡
      */
     int REQUESTCODE_MEMBERCARD = 1;

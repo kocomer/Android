@@ -14,13 +14,13 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center"
-            android:text="会员列表"
+            android:text="营销卡列表"
             android:textColor="@color/white" />
     </LinearLayout>
 
     <fragment
-        android:id="@+id/activity_wechat_cardlist_fragment"
-        android:name="com.kocomer.wechat.fragment.cardlist.WechatCardListFragment"
+        android:id="@+id/activity_wechat_memberlist_fragment"
+        android:name="com.kocomer.wechat.fragment.memberlist.WechatMemberListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
 </LinearLayout>
