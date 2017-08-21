@@ -49,7 +49,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public String getURL() {
-        return Constants.STR_URL + "/activity.json";
+        return Constants.STR_URL + "/activity.json?imei=test";
     }
 
     @Override
@@ -85,10 +85,9 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
             public void onClick(View v) {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("model", Build.MODEL);
-
                 String imei = ((TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
                 params.put("loginName", loginNameEt.getText().toString());
-                params.put("password", loginNameEt.getText().toString());
+                params.put("password", passwordEt.getText().toString());
                 loadContent(Constants.STR_URL + "/login.json", params, new LoginAnalysis());
             }
         });
@@ -102,6 +101,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public void onPageLoaded(ActivityEntity entity) {
+        System.out.print("entity.deviceSession = " + entity.deviceSession);
         SesssionHelper.setDeviceSession(getActivity(), entity.deviceSession);
         System.out.print(entity.deviceSession);
         System.out.println("callback");
