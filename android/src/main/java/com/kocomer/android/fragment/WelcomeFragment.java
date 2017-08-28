@@ -20,4 +20,9 @@ public class WelcomeFragment extends ContentFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_welcome, null);
     }
+
+    @Override
+    protected String setPageName() {
+        return "Welcome";
+    }
 }

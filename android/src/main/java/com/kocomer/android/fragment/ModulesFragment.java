@@ -12,6 +12,12 @@ import android.widget.RelativeLayout;
 import com.android.volley.analysis.Analysis;
 import com.kocomer.android.R;
 import com.kocomer.android.helper.Constants;
+import com.kocomer.employee.fragment.EmployeeFragment;
+import com.kocomer.employee.fragment.navigation.EmployeeNavigationFragment;
+import com.kocomer.message.fragment.MessageFragment;
+import com.kocomer.message.fragment.navigation.MessageNavigationFragment;
+import com.kocomer.more.fragment.MoreFragment;
+import com.kocomer.more.fragment.navigation.MoreNavigationFragment;
 import com.kocomer.pay.fragment.PayFragment;
 import com.kocomer.pay.fragment.navigation.PayNavigationFragment;
 import com.kocomer.core.analysis.ModulesAnalysis;
@@ -21,6 +27,7 @@ import com.kocomer.corporation.fragment.CorporationFragment;
 import com.kocomer.corporation.fragment.navigation.CorporationNavigationFragment;
 import com.kocomer.wechat.fragment.WechatFragment;
 import com.kocomer.wechat.fragment.navigation.WechatNavigationFragment;
+import com.umeng.analytics.MobclickAgent;
 
 /**
  * 模块插件
@@ -30,14 +37,33 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
     private RelativeLayout footLayout;
     private LinearLayout bodyLayout;
 
+    @Override
+    protected String setPageName() {
+        return "Modules";
+    }
+
     private RelativeLayout wechatNavigationLayout;
     private RelativeLayout corporationNavigationLayout;
     private RelativeLayout payNavigationLayout;
+    private RelativeLayout messageNavigationLayout;
+    private RelativeLayout employeeNavigationLayout;
+    private RelativeLayout moreNavigationLayout;
+
     private ModulesEntity modulesEntity;
 
-    private WechatFragment wechatFragment;
-    private CorporationFragment corporationFragment;
-    private PayFragment payFragment;
+
+    //微信管理导航
+    private WechatNavigationFragment wechatNavigationFragment;
+    //公司管理导航
+    private CorporationNavigationFragment corporationNavigationFragment;
+    //支付管理导航
+    private PayNavigationFragment payNavigationFragment;
+    //消息管理导航
+    private MessageNavigationFragment messageNavigationFragment;
+    //雇员管理导航
+    private EmployeeNavigationFragment employeeNavigationFragment;
+    //更多导航
+    private MoreNavigationFragment moreNavigationFragment;
 
     @Nullable
     @Override
@@ -49,10 +75,16 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
         wechatNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_wechat_rl);
         corporationNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_corporation_rl);
         payNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_pay_rl);
+        messageNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_message_rl);
+        employeeNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_employee_rl);
+        moreNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_more_rl);
 
         wechatNavigationLayout.setOnClickListener(this);
         corporationNavigationLayout.setOnClickListener(this);
         payNavigationLayout.setOnClickListener(this);
+        messageNavigationLayout.setOnClickListener(this);
+        employeeNavigationLayout.setOnClickListener(this);
+        moreNavigationLayout.setOnClickListener(this);
         return layout;
     }
 
@@ -83,47 +115,97 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
         for (int i = 0, length = entity.module.length; i < length; i++) {
             ModulesEntity.Module module = entity.module[i];
             if (Constants.MODULE_WECHAT.equals(module.code)) {//微信营销模块
-                wechatFragment = new WechatFragment();
-                wechatFragment.setCells(getCells(entity, Constants.MODULE_WECHAT));
                 wechatNavigationLayout.setVisibility(View.VISIBLE);
-                WechatNavigationFragment wechatNavigationFragment = new WechatNavigationFragment();
+                wechatNavigationFragment = new WechatNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_wechat_rl, wechatNavigationFragment);
             } else if (Constants.MODULE_CORPORATION.equals(module.code)) {//公司中心
-                corporationFragment = new CorporationFragment();
-                corporationFragment.setCells(getCells(entity, Constants.MODULE_CORPORATION));
                 corporationNavigationLayout.setVisibility(View.VISIBLE);
-                CorporationNavigationFragment corporationNavigationFragment = new CorporationNavigationFragment();
+                corporationNavigationFragment = new CorporationNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_corporation_rl, corporationNavigationFragment);
             } else if (Constants.MODULE_PAY.equals(module.code)) {
 
-                payFragment = new PayFragment();
-                payFragment.setCells(getCells(entity, Constants.MODULE_PAY));
-                PayNavigationFragment payNavigationFragment = new PayNavigationFragment();
+                payNavigationFragment = new PayNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_pay_rl, payNavigationFragment);
                 payNavigationLayout.setVisibility(View.VISIBLE);
+            } else if (Constants.MODULE_MESSAGE.equals(module.code)) {
+
+                messageNavigationFragment = new MessageNavigationFragment();
+                ft.add(R.id.fragment_modules_foot_message_rl, messageNavigationFragment);
+                messageNavigationLayout.setVisibility(View.VISIBLE);
+            } else if (Constants.MODULE_EMPLOYEE.equals(module.code)) {
+
+                employeeNavigationFragment = new EmployeeNavigationFragment();
+                ft.add(R.id.fragment_modules_foot_employee_rl, employeeNavigationFragment);
+                employeeNavigationLayout.setVisibility(View.VISIBLE);
             }
+
         }
+        moreNavigationFragment = new MoreNavigationFragment();
+        ft.add(R.id.fragment_modules_foot_more_rl, moreNavigationFragment);
+        moreNavigationLayout.setVisibility(View.VISIBLE);
         ft.commit();
 
     }
 
     @Override
     public void onClick(View v) {
-        System.out.println("v =======" + v);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 
+        if (wechatNavigationFragment != null) {
+            wechatNavigationFragment.normalCallback();
+        }
+        if (corporationNavigationFragment != null) {
+            corporationNavigationFragment.normalCallback();
+        }
+        if (payNavigationFragment != null) {
+            payNavigationFragment.normalCallback();
+        }
+        if (messageNavigationFragment != null) {
+            messageNavigationFragment.normalCallback();
+        }
+        if (employeeNavigationFragment != null) {
+            employeeNavigationFragment.normalCallback();
+        }
+
+
+        moreNavigationFragment.normalCallback();
+
         switch (v.getId()) {
+            case R.id.fragment_modules_foot_more_rl: {
+                MobclickAgent.onEvent(getActivity(), "More");
+                moreNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new MoreFragment());
+
+            }
+            break;
             case R.id.fragment_modules_foot_wechat_rl: {
-                ft.replace(R.id.fragment_modules_body_ll, wechatFragment);
+                MobclickAgent.onEvent(getActivity(), "Wechat");
+                wechatNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new WechatFragment().setCells(getCells(modulesEntity, Constants.MODULE_WECHAT)));
             }
             break;
             case R.id.fragment_modules_foot_corporation_rl: {
-                corporationFragment.setCells(getCells(modulesEntity, Constants.MODULE_CORPORATION));
-                ft.replace(R.id.fragment_modules_body_ll, corporationFragment);
+                MobclickAgent.onEvent(getActivity(), "Corporation");
+                corporationNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new CorporationFragment().setCells(getCells(modulesEntity, Constants.MODULE_CORPORATION)));
             }
             break;
             case R.id.fragment_modules_foot_pay_rl: {
-                ft.replace(R.id.fragment_modules_body_ll, payFragment);
+                MobclickAgent.onEvent(getActivity(), "Pay");
+                payNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new PayFragment().setCells(getCells(modulesEntity, Constants.MODULE_PAY)));
+            }
+            break;
+            case R.id.fragment_modules_foot_message_rl: {
+                MobclickAgent.onEvent(getActivity(), "Message");
+                messageNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new MessageFragment().setCells(getCells(modulesEntity, Constants.MODULE_MESSAGE)));
+            }
+            break;
+            case R.id.fragment_modules_foot_employee_rl: {
+                MobclickAgent.onEvent(getActivity(), "Employee");
+                employeeNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new EmployeeFragment().setCells(getCells(modulesEntity, Constants.MODULE_PAY)));
 
             }
             break;

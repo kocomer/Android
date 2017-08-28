@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
+import com.kocomer.core.activity.BaseActivity;
 import com.kocomer.wechat.R;
 import com.kocomer.wechat.fragment.memberlist.WechatMemberListFragment;
 import com.kocomer.wechat.fragment.scancard.WechatScanCardFragment;
@@ -15,7 +16,7 @@ import com.kocomer.wechat.fragment.scanmember.WechatScanMemberFragment;
  * Created by kocomer on 2017/7/18.
  */
 
-public class WechatScanMemberActivity extends FragmentActivity {
+public class WechatScanMemberActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

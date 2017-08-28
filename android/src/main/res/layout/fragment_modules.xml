@@ -17,7 +17,8 @@
         android:id="@+id/fragment_modules_foot_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,6 +46,33 @@
 
             <RelativeLayout
                 android:id="@+id/fragment_modules_foot_pay_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_modules_foot_message_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_modules_foot_employee_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_modules_foot_more_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

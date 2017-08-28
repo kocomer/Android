@@ -25,6 +25,11 @@ public class PayHistoryFragment extends PageFragment<PayHistoryEntity> {
     private ListView lv;
     private LinearLayout layout;
 
+    @Override
+    protected String setPageName() {
+        return "PayHistory";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -74,7 +79,6 @@ public class PayHistoryFragment extends PageFragment<PayHistoryEntity> {
 
                     convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_pay_history_content_item, null);
                     viewHolder.paySource = (TextView) convertView.findViewById(R.id.fragment_pay_history_content_item_paysource_tv);
-                    viewHolder.payer = (TextView) convertView.findViewById(R.id.fragment_pay_history_content_item_payer_tv);
                     viewHolder.money = (TextView) convertView.findViewById(R.id.fragment_pay_history_content_item_money_tv);
                     viewHolder.desc = (TextView) convertView.findViewById(R.id.fragment_pay_history_content_item_desc_tv);
                     viewHolder.remark = (TextView) convertView.findViewById(R.id.fragment_pay_history_content_item_remark_tv);
@@ -85,7 +89,6 @@ public class PayHistoryFragment extends PageFragment<PayHistoryEntity> {
                     viewHolder = (ViewHolder) convertView.getTag();
                 }
                 viewHolder.paySource.setText(entity.payHistories[position].paySource);
-                viewHolder.payer.setText(entity.payHistories[position].payer);
                 viewHolder.money.setText(entity.payHistories[position].money);
                 viewHolder.desc.setText(entity.payHistories[position].desc);
                 viewHolder.remark.setText(entity.payHistories[position].remark);
@@ -98,7 +101,6 @@ public class PayHistoryFragment extends PageFragment<PayHistoryEntity> {
 
     class ViewHolder {
         public TextView paySource;
-        public TextView payer;
         public TextView money;
         public TextView desc;
         public TextView remark;

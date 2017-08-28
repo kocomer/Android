@@ -44,12 +44,12 @@ public class SesssionHelper {
      * 设置deviceSession
      *
      * @param activity
-     * @param userSession
+     * @param deviceSession
      */
-    public static void setDeviceSession(Activity activity, String userSession) {
+    public static void setDeviceSession(Activity activity, String deviceSession) {
         SharedPreferences share = activity.getSharedPreferences(deviceSessionFile, MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit(); //编辑文件
-        edit.putString(deviceSessionKey, userSession);
+        edit.putString(deviceSessionKey, deviceSession);
         edit.commit();  //保存数据信息
     }
 
@@ -61,6 +61,6 @@ public class SesssionHelper {
      */
     public static String getDeviceSession(Activity activity) {
         SharedPreferences share = activity.getSharedPreferences(deviceSessionFile, MODE_PRIVATE);
-        return share.getString(deviceSessionKey, "");
+        return activity == null ? "" : activity.getSharedPreferences(deviceSessionFile, MODE_PRIVATE).getString(deviceSessionKey, "");
     }
 }

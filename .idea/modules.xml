@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/android-mall/android-mall.iml" filepath="$PROJECT_DIR$/android-mall/android-mall.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-map/android-map.iml" filepath="$PROJECT_DIR$/android-map/android-map.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-message/android-message.iml" filepath="$PROJECT_DIR$/android-message/android-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-more/android-more.iml" filepath="$PROJECT_DIR$/android-more/android-more.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-pay/android-pay.iml" filepath="$PROJECT_DIR$/android-pay/android-pay.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-repository/android-repository.iml" filepath="$PROJECT_DIR$/android-repository/android-repository.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-wechat/android-wechat.iml" filepath="$PROJECT_DIR$/android-wechat/android-wechat.iml" />

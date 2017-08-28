@@ -26,6 +26,11 @@ public class CorporationWalletHistoryFragment extends PageFragment<CorporationWa
     private ListView lv;
     private LinearLayout layout;
 
+    @Override
+    protected String setPageName() {
+        return "CorporationWalletHistory";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

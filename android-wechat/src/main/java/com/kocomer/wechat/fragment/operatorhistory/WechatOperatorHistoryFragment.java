@@ -28,6 +28,11 @@ public class WechatOperatorHistoryFragment extends PageFragment<WechatOperatorHi
     private LinearLayout layout;
     private ListView listView;
 
+    @Override
+    protected String setPageName() {
+        return "WechatOperatorHistory";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

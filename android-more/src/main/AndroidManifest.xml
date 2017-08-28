@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.kocomer.more">
+
+    <application>
+        <activity android:name=".activity.MoreAboutActivity"></activity>
+        <activity android:name=".activity.MoreFeedbackActivity"></activity>
+        <activity android:name=".activity.MoreHelpActivity"></activity>
+    </application>
+
+</manifest>

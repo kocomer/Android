@@ -20,7 +20,6 @@ public class PayHistoryAnalysis implements Analysis<PayHistoryEntity> {
         payHistoryEntity.createPayHistory(length);
         for (int i = 0; i < length; i++) {
             JSONObject historyJObj = historysJAry.getJSONObject(i);
-            payHistoryEntity.payHistories[i].payer = historyJObj.optString("payer");
             payHistoryEntity.payHistories[i].paySource = historyJObj.optString("paySource");
             payHistoryEntity.payHistories[i].money = historyJObj.optString("money");
             payHistoryEntity.payHistories[i].desc = historyJObj.optString("desc");

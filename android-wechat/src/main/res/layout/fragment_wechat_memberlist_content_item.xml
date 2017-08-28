@@ -7,9 +7,9 @@
 
     <ImageView
         android:id="@+id/fragment_wechat_memberlist_content_item_head_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/history" />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/anonymous" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,8 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:gravity="center|left"
-                android:text="张三" />
+                android:gravity="center|left" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,15 +49,14 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="7"
                 android:gravity="center|right"
-                android:text="发券时间:" />
+                android:text="注册时间:" />
 
             <TextView
                 android:id="@+id/fragment_wechat_memberlist_content_item_date_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:gravity="center|left"
-                android:text="2018-10-1" />
+                android:gravity="center|left" />
         </LinearLayout>
 
         <LinearLayout

@@ -19,6 +19,11 @@ import com.kocomer.corporation.entity.CorporationWithdrawEntity;
  */
 
 public class CorporationWithdrawFragment extends PageFragment<CorporationWithdrawEntity> {
+    @Override
+    protected String setPageName() {
+        return "CorporationWithdraw";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

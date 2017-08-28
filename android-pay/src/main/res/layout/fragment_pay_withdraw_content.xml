@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="1"
+                android:text="钱包总额" />
+
+            <TextView
+                android:id="@+id/fragment_pay_withdraw_content_cny_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="right|center_vertical"-->
+        <!--android:layout_weight="1"-->
+        <!--android:text="可取现" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="left|center_vertical"-->
+        <!--android:layout_weight="1"-->
+        <!--android:text="100$" />-->
+        <!--</LinearLayout>-->
+
+        <Button
+            android:id="@+id/fragment_pay_withdraw_content_alipay_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="支付宝取现" />
+
+        <Button
+            android:id="@+id/fragment_pay_withdraw_content_wechat_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="微信取现" />
+    </LinearLayout>
+
+</LinearLayout>

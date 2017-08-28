@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="noticeTitle">26sp</dimen>
+    <dimen name="notice">18sp</dimen>
+    <dimen name="noticeDate">16sp</dimen>
+</resources>

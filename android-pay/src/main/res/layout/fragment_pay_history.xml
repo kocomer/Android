@@ -5,29 +5,25 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/fragment_item_margin"
     android:clickable="true"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <LinearLayout
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:src="@drawable/payhistory_selector" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/history" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="支付历史"
-            android:textSize="@dimen/fragment_item_name" />
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:text="账户流水"
+        android:textSize="@dimen/fragment_navigation_textsize" />
 
 
 </LinearLayout>

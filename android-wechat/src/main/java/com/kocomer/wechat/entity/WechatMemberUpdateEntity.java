@@ -5,4 +5,7 @@ package com.kocomer.wechat.entity;
  */
 
 public class WechatMemberUpdateEntity {
+    public String point;//积分
+    public String balance;//余额
 }
+

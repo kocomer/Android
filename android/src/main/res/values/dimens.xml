@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="modules_head_title_width">45dp</dimen>
+    <dimen name="login_textsize">23dp</dimen>
+    <dimen name="login_title_textsize">28dp</dimen>
 </resources>

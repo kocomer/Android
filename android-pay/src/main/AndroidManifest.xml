@@ -6,5 +6,7 @@
         <activity android:name=".activity.PayScanAlipayActivity"></activity>
         <activity android:name=".activity.PayScanWechatActivity"></activity>
         <activity android:name=".activity.PayHistoryActivity"></activity>
+        <activity android:name=".activity.PayListActivity"></activity>
+        <activity android:name=".activity.PayWithdrawActivity"></activity>
     </application>
 </manifest>

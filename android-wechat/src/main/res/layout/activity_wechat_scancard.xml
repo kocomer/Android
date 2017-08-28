@@ -3,6 +3,7 @@
     android:id="@+id/activity_wechat_scancard_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,8 +20,4 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <fragment
-        android:name="com.kocomer.wechat.fragment.scancard.WechatScanCardFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
 </LinearLayout>

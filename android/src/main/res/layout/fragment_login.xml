@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context="com.kocomer.android.fragment.ActivityFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/title" />
+
+    <LinearLayout
+        android:id="@+id/fragment_login_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/fragment_login_margin"
+        android:background="@drawable/login_shape"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/fragment_login_loginname_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="登录名"
+            android:text="peng"
+            android:textSize="@dimen/login_textsize" />
+
+
+        <EditText
+            android:id="@+id/fragment_login_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入密码"
+            android:text="promote"
+            android:textSize="@dimen/login_textsize" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/fragment_login_loginbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_login_ll"
+        android:layout_margin="@dimen/fragment_item_margin"
+        android:layout_marginTop="@dimen/fragment_item_margin"
+        android:background="@drawable/login_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/fragment_item_margin"
+        android:text="登录" />
+</RelativeLayout>

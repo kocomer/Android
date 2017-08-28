@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="礼品卡" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="礼品卡" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="礼品卡" />
+            android:text="" />
     </LinearLayout>
 
     <Button

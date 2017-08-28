@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center"
-            android:text="支付历史"
+            android:text="账户流水"
             android:textColor="@color/white" />
     </LinearLayout>
 

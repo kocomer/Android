@@ -57,6 +57,10 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
         this.loadContent(Request.Method.POST, url, params, analysis, ContentFragment.this);
     }
 
+    public void loadContent(String url, Analysis analysis) {
+        this.loadContent(Request.Method.POST, url, null, analysis, ContentFragment.this);
+    }
+
     public void loadContent(String url, final HashMap<String, String> params, Analysis analysis, ContentListener listener) {
         this.loadContent(Request.Method.POST, url, params, analysis, listener);
     }
@@ -90,7 +94,7 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
                 headers.put(Constants.STR_CORPORATIONCODE, Constants.coropratincode);
                 headers.put(Constants.STR_PLATFORMFINGER, Constants.platformFinger);
                 headers.put(Constants.STR_STOREFINGER, Constants.storeFinger);
-                headers.put(Constants.STR_DEVICESESSION, "deviceSession");
+                headers.put(Constants.STR_DEVICESESSION, SesssionHelper.getDeviceSession(getActivity()));
                 headers.put(Constants.STR_USERSESSION, SesssionHelper.getUserSession(getActivity()));
                 return headers;
             }
@@ -116,9 +120,13 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
 
     @Override
     public void onContentError(VolleyError error) {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
         error.printStackTrace();
         switch (error.result) {
             case Constants.RESULT_WARNING: {//
+
                 showMsg(error.message);
             }
             break;

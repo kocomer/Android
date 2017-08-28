@@ -1,6 +1,8 @@
 package com.kocomer.core.fragment;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +16,7 @@ import com.android.volley.toolbox.ObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kocomer.core.exception.MyAjaxException;
 import com.kocomer.core.exception.RelandException;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
 
@@ -24,9 +27,23 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public abstract class BaseFragment extends Fragment implements View.OnClickListener {
 
+    protected abstract String setPageName();
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(setPageName());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(setPageName());
+
+    }
+
     @Override
     public void onClick(View v) {
-
     }
 
     /**
@@ -35,7 +52,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      * @param exception
      */
     protected void resolveRelandException(RelandException exception) {
-        
+
     }
 
     /**
@@ -44,6 +61,20 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      * @param exception
      */
     protected void resolveMyAjaxException(MyAjaxException exception) {
+
+    }
+
+    /**
+     * 用来处理正常回调
+     */
+    protected void normalCallback() {
+
+    }
+
+    /**
+     * 用来处理选中回调
+     */
+    protected void selectedCallback() {
 
     }
 }

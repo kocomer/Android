@@ -34,7 +34,7 @@ public class ObjectRequest<T> extends Request<T> {
 
             }
             case 1: {
-                throw new JSONException("登录超时");
+                throw new JSONException(jsonObject.optString("msg"));
             }
 
         }

@@ -8,8 +8,9 @@
         android:id="@+id/fragment_corporation_nav_icon_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_navigation_margin"
         android:layout_centerInParent="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/corporation_normal" />
 
     <TextView
         android:id="@+id/fragment_corporation_nav_text_tv"

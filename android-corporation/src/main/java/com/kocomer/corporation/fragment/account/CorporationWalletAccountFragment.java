@@ -26,6 +26,11 @@ public class CorporationWalletAccountFragment extends PageFragment<CorporationWa
     }
 
     @Override
+    protected String setPageName() {
+        return "CorporationWalletAccount";
+    }
+
+    @Override
     public String getPageId() {
         return "";
     }

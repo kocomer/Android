@@ -14,9 +14,17 @@ public interface PayConstants {
      */
     String CELL_PAY_SCANALIPAY = "pay_scanalipay";
     /**
+     * 支付列表
+     */
+    String CELL_PAY_LIST = "pay_list";
+    /**
      * 支付历史
      */
     String CELL_PAY_HISTORY = "pay_history";
+    /**
+     * 商户取现
+     */
+    String CELL_PAY_WITHDRAW = "pay_withdraw";
 
 
     /**
@@ -31,4 +39,8 @@ public interface PayConstants {
      * 扫描支付宝付款码
      */
     int REQUESTCODE_ALIPAYBAR = 5;
+    /**
+     * 扫描微信支付码
+     */
+    int REQUESTCODE_WECHATPAYBAR = 6;
 }

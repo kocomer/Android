@@ -24,8 +24,14 @@ public class CorporationFragment extends ContentFragment implements View.OnClick
     private LinearLayout linearLayout;
     private ModulesEntity.Module.Cell[] cells;
 
-    public void setCells(ModulesEntity.Module.Cell[] cells) {
+    @Override
+    protected String setPageName() {
+        return "Corporation";
+    }
+
+    public CorporationFragment setCells(ModulesEntity.Module.Cell[] cells) {
         this.cells = cells;
+        return this;
     }
 
 

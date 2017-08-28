@@ -21,5 +21,13 @@ public interface Constants {
      * 支付模块
      */
     String MODULE_PAY = "pay";
+    /**
+     * 消息模块
+     */
+    String MODULE_MESSAGE = "message";
+    /**
+     * 雇员模块
+     */
+    String MODULE_EMPLOYEE = "employee";
 
 }

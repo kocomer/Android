@@ -14,6 +14,11 @@ import com.kocomer.core.fragment.BaseFragment;
  */
 
 public class RepositoryPortalNavigationFragment extends BaseFragment {
+    @Override
+    protected String setPageName() {
+        return "RepositoryPortalNavigation";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

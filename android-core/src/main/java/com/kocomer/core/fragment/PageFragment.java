@@ -32,7 +32,6 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -68,10 +67,10 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put(Constants.STR_CORPORATIONCODE, "5bcce0b9-5478-4ab7-a0ea-a4cb0abf1577");
-                headers.put(Constants.STR_PLATFORMFINGER, "5bcce0b9-5478-4ab7-a0ea-a4cb0abf1577");
-                headers.put(Constants.STR_STOREFINGER, "storeFinger");
-                headers.put(Constants.STR_DEVICESESSION, "deviceSession");
+                headers.put(Constants.STR_CORPORATIONCODE, Constants.coropratincode);
+                headers.put(Constants.STR_PLATFORMFINGER, Constants.platformFinger);
+                headers.put(Constants.STR_STOREFINGER, Constants.storeFinger);
+                headers.put(Constants.STR_DEVICESESSION, SesssionHelper.getDeviceSession(getActivity()));
                 headers.put(Constants.STR_USERSESSION, SesssionHelper.getUserSession(getActivity()));
                 return headers;
             }

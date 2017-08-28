@@ -18,8 +18,10 @@ import com.google.zxing.client.android.CaptureActivity;
 import com.google.zxing.client.android.Intents;
 import com.kocomer.pay.R;
 import com.kocomer.pay.activity.PayHistoryActivity;
+import com.kocomer.pay.activity.PayListActivity;
 import com.kocomer.pay.activity.PayScanAlipayActivity;
 import com.kocomer.pay.activity.PayScanWechatActivity;
+import com.kocomer.pay.activity.PayWithdrawActivity;
 import com.kocomer.pay.helper.PayConstants;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
@@ -34,10 +36,16 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
     private LinearLayout contentLayout;
     private LinearLayout scancardLinearLayout;
 
+    @Override
+    protected String setPageName() {
+        return "Pay";
+    }
+
     private ModulesEntity.Module.Cell[] cells;
 
-    public void setCells(ModulesEntity.Module.Cell[] cells) {
+    public PayFragment setCells(ModulesEntity.Module.Cell[] cells) {
         this.cells = cells;
+        return this;
     }
 
     @Nullable
@@ -48,6 +56,7 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
         int length = cells.length;
         for (int i = 0; i < length; i++) {
             final ModulesEntity.Module.Cell cell = cells[i];
+            System.out.println("code === " + cell.code);
             switch (cell.code) {
                 case PayConstants.CELL_PAY_SCANWECHAT: {//微信扫会员卡
                     inflater.inflate(R.layout.fragment_pay_scanwechat, contentLayout).findViewById(R.id.fragment_pay_scanwechat_ll).setOnClickListener(this);
@@ -57,8 +66,16 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
                     inflater.inflate(R.layout.fragment_pay_scanalipay, contentLayout).findViewById(R.id.fragment_pay_scanalipay_ll).setOnClickListener(this);
                 }
                 break;
+                case PayConstants.CELL_PAY_LIST: {
+                    inflater.inflate(R.layout.fragment_pay_list, contentLayout).findViewById(R.id.fragment_pay_list_ll).setOnClickListener(this);
+                }
+                break;
                 case PayConstants.CELL_PAY_HISTORY: {
                     inflater.inflate(R.layout.fragment_pay_history, contentLayout).findViewById(R.id.fragment_pay_history_ll).setOnClickListener(this);
+                }
+                break;
+                case PayConstants.CELL_PAY_WITHDRAW: {
+                    inflater.inflate(R.layout.fragment_pay_withdraw, contentLayout).findViewById(R.id.fragment_pay_withdraw_ll).setOnClickListener(this);
                 }
                 break;
 
@@ -113,6 +130,10 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
             startActivity(new Intent(getActivity(), PayScanAlipayActivity.class));
         } else if (i == R.id.fragment_pay_history_ll) {
             startActivity(new Intent(getActivity(), PayHistoryActivity.class));
+        } else if (i == R.id.fragment_pay_list_ll) {
+            startActivity(new Intent(getActivity(), PayListActivity.class));
+        } else if (i == R.id.fragment_pay_withdraw_ll) {
+            startActivity(new Intent(getActivity(), PayWithdrawActivity.class));
         }
     }
 }

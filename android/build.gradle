@@ -36,4 +36,7 @@ dependencies {
     compile project(':android-corporation')
     compile project(':android-pay')
     compile project(':android-alipay')
+    compile project(':android-employee')
+    compile project(':android-message')
+    compile project(':android-more')
 }

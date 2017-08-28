@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgreen">
+
+    <ImageView
+        android:id="@+id/activity_main_index_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/index" />
+
+    <fragment
+        android:id="@+id/activity_main_activity_ft"
+        android:name="com.kocomer.android.fragment.ActivityFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></fragment>
+
+
+</RelativeLayout>

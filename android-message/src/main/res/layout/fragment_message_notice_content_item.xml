@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/fragment_login_padding">
+
+    <TextView
+        android:id="@+id/fragment_message_mail_notice_content_item_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/noticeTitle" />
+
+
+    <TextView
+        android:id="@+id/fragment_message_mail_notice_content_item_date_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|right"
+        android:textSize="@dimen/noticeDate" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_margin="@dimen/fragment_item_margin"
+        android:background="@color/colorgrey" />
+
+    <TextView
+        android:id="@+id/fragment_message_mail_notice_content_item_notice_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:textSize="@dimen/notice" />
+</LinearLayout>

@@ -30,9 +30,13 @@ import java.util.HashMap;
 public class PayScanAlipayFragment extends ContentFragment implements View.OnClickListener {
     private AlertDialog.Builder confirmDialog;
     private LinearLayout layout;
-    private Button scanBtn;
     private EditText moneyEt;
     private String amount;
+
+    @Override
+    protected String setPageName() {
+        return "PayScanAlipay";
+    }
 
     @Nullable
     @Override
@@ -40,9 +44,8 @@ public class PayScanAlipayFragment extends ContentFragment implements View.OnCli
         layout = (LinearLayout) inflater.inflate(R.layout.fragment_pay_scanalipay_content, null);
         confirmDialog = new AlertDialog.Builder(getActivity());
         confirmDialog.setTitle("确认金额");
-        scanBtn = (Button) layout.findViewById(R.id.fragment_pay_scanalipay_content_scan_btn);
+        layout.findViewById(R.id.fragment_pay_scanalipay_content_scan_btn).setOnClickListener(this);
         moneyEt = (EditText) layout.findViewById(R.id.fragment_pay_scanalipay_content_money_et);
-        scanBtn.setOnClickListener(this);
         return layout;
     }
 
@@ -86,7 +89,12 @@ public class PayScanAlipayFragment extends ContentFragment implements View.OnCli
     public void onContentLoaded(Object entity) {
         if (entity instanceof PayScanAlipayEntity) {
             PayScanAlipayEntity payScanAlipayEntity = (PayScanAlipayEntity) entity;
-            new AlertDialog.Builder(getActivity()).setTitle("支付成功").setMessage("支付成功金额" + amount + "元").create().show();
+            new AlertDialog.Builder(getActivity()).setMessage("支付成功").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    getActivity().finish();
+                }
+            }).create().show();
         }
     }
 }

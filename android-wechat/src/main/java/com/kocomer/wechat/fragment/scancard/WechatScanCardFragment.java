@@ -20,8 +20,12 @@ import com.kocomer.wechat.R;
 import com.kocomer.wechat.analysis.WechatMemberAnalysis;
 import com.kocomer.wechat.analysis.WechatMemberUpdateAnalysis;
 import com.kocomer.wechat.analysis.WechatScanCardAnalysis;
+import com.kocomer.wechat.analysis.WechatScanCardConsumeAnalysis;
+import com.kocomer.wechat.entity.WechatCardListEntity;
 import com.kocomer.wechat.entity.WechatMemberEntity;
 import com.kocomer.wechat.entity.WechatMemberUpdateEntity;
+import com.kocomer.wechat.entity.WechatScanCardConsumeEntity;
+import com.kocomer.wechat.entity.WechatScanCardEntity;
 
 import java.util.HashMap;
 
@@ -36,6 +40,11 @@ public class WechatScanCardFragment extends ContentFragment implements View.OnCl
     private TextView titleTv;
     private TextView subTitleTv;
     private Button submitBtn;
+
+    @Override
+    protected String setPageName() {
+        return "WechatScanCard";
+    }
 
     @Nullable
     @Override
@@ -52,13 +61,14 @@ public class WechatScanCardFragment extends ContentFragment implements View.OnCl
 
     @Override
     public void onContentLoaded(Object entity) {
-        if (entity instanceof WechatMemberEntity) {
-            WechatMemberEntity wechatMemberEntity = (WechatMemberEntity) entity;
-
-
-        } else if (entity instanceof WechatMemberUpdateEntity) {
-            WechatMemberUpdateEntity wechatMemberUpdateEntity = (WechatMemberUpdateEntity) entity;
-            showMsg("更新成功");
+        if (entity instanceof WechatScanCardConsumeEntity) {
+            WechatScanCardConsumeEntity wechatScanCardConsumeEntity = (WechatScanCardConsumeEntity) entity;
+            showMsg("核销成功");
+        } else if (entity instanceof WechatScanCardEntity) {
+            WechatScanCardEntity wechatScanCardEntity = (WechatScanCardEntity) entity;
+            typeTv.setText(wechatScanCardEntity.type);
+            titleTv.setText(wechatScanCardEntity.title);
+            subTitleTv.setText(wechatScanCardEntity.subTitle);
         }
     }
 
@@ -70,7 +80,8 @@ public class WechatScanCardFragment extends ContentFragment implements View.OnCl
 
             HashMap<String, String> params = new HashMap<>();
             params.put("cardCode", code);
-            loadContent("wechat_scanCard.json", params, new WechatMemberUpdateAnalysis());
+            params.put("status", "consume");
+            loadContent(Constants.STR_URL + "/wechat_scanCard.json", params, new WechatScanCardConsumeAnalysis());
         }
     }
 }

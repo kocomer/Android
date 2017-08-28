@@ -17,7 +17,9 @@ import com.kocomer.core.fragment.PageFragment;
 import com.kocomer.core.helper.Constants;
 import com.kocomer.core.helper.ImageCache;
 import com.kocomer.wechat.R;
+import com.kocomer.wechat.analysis.WechatCardListAnalysis;
 import com.kocomer.wechat.analysis.WechatMemberListAnalysis;
+import com.kocomer.wechat.entity.WechatCardListEntity;
 import com.kocomer.wechat.entity.WechatMemberListEntity;
 import com.kocomer.wechat.fragment.memberlist.WechatMemberListFragment;
 
@@ -28,7 +30,7 @@ import java.util.List;
  * Created by kocomer on 2017/7/31.
  */
 
-public class WechatCardListFragment extends PageFragment<WechatMemberListEntity> implements View.OnClickListener {
+public class WechatCardListFragment extends PageFragment<WechatCardListEntity> implements View.OnClickListener {
     private LinearLayout layout;
     private ListView listView;
     private final List<WechatMemberListEntity> list = new ArrayList<WechatMemberListEntity>();
@@ -36,11 +38,16 @@ public class WechatCardListFragment extends PageFragment<WechatMemberListEntity>
     private int limit = 20;
     private ImageLoader imageLoader;
 
+    @Override
+    protected String setPageName() {
+        return "WechatCardList";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        layout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_memberlist_content, null);
-        listView = (ListView) layout.findViewById(R.id.fragment_wechat_memberlist_content_lv);
+        layout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_cardlist_content, null);
+        listView = (ListView) layout.findViewById(R.id.fragment_wechat_cardlist_content_lv);
         imageLoader = new ImageLoader(queue, new ImageCache());
 
         return layout;
@@ -53,25 +60,25 @@ public class WechatCardListFragment extends PageFragment<WechatMemberListEntity>
 
     @Override
     public String getURL() {
-        return Constants.STR_URL + "/wechat_memberList.json?firstResult=1&maxResults=20";
+        return Constants.STR_URL + "/wechat_cardList.json?firstResult=1&maxResults=20";
     }
 
     @Override
     public Analysis getAnalysis() {
-        return new WechatMemberListAnalysis();
+        return new WechatCardListAnalysis();
     }
 
     @Override
-    public void onPageLoaded(final WechatMemberListEntity entity) {
+    public void onPageLoaded(final WechatCardListEntity entity) {
         listView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return entity.wechatMemberEntitys.length;
+                return entity.wechatCardEntityEntitys.length;
             }
 
             @Override
             public Object getItem(int position) {
-                return entity.wechatMemberEntitys[position];
+                return entity.wechatCardEntityEntitys[position];
             }
 
             @Override
@@ -81,25 +88,24 @@ public class WechatCardListFragment extends PageFragment<WechatMemberListEntity>
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-//                WechatMemberListFragment.ViewHolder viewHolder = null;
-//                if (convertView == null) {
-//                    viewHolder = new WechatMemberListFragment.ViewHolder();
-//                    convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_wechat_memberlist_content_item, null);
-//                    viewHolder.nick = (TextView) convertView.findViewById(R.id.fragment_wechat_memberlist_content_item_nick_tv);
-//                    viewHolder.points = (TextView) convertView.findViewById(R.id.fragment_wechat_memberlist_content_item_points_tv);
-//                    viewHolder.date = (TextView) convertView.findViewById(R.id.fragment_wechat_memberlist_content_item_date_tv);
-//                    viewHolder.head = (ImageView) convertView.findViewById(R.id.fragment_wechat_memberlist_content_item_head_iv);
-//                    convertView.setTag(viewHolder);
-//                } else {
-//                    viewHolder = (WechatMemberListFragment.ViewHolder) convertView.getTag();
-//                }
-//                System.out.println("point = " + entity.wechatMemberEntitys[position].points);
-//                viewHolder.nick.setText(entity.wechatMemberEntitys[position].nick);
-//                viewHolder.points.setText(entity.wechatMemberEntitys[position].points);
-//                viewHolder.date.setText(entity.wechatMemberEntitys[position].date);
-//
-//                ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(viewHolder.head, R.drawable.share_via_barcode, R.drawable.launcher_icon);
-//                imageLoader.get(entity.wechatMemberEntitys[position].head, imageListener);
+                ViewHolder viewHolder = null;
+                if (convertView == null) {
+                    viewHolder = new ViewHolder();
+                    convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_wechat_cardlist_content_item, null);
+                    viewHolder.brand = (TextView) convertView.findViewById(R.id.fragment_wechat_cardlist_content_item_brand_tv);
+                    viewHolder.type = (TextView) convertView.findViewById(R.id.fragment_wechat_cardlist_content_item_type_tv);
+                    viewHolder.remark = (TextView) convertView.findViewById(R.id.fragment_wechat_memberlist_content_item_remark_tv);
+                    viewHolder.logo = (ImageView) convertView.findViewById(R.id.fragment_wechat_cardlist_content_item_head_iv);
+                    convertView.setTag(viewHolder);
+                } else {
+                    viewHolder = (ViewHolder) convertView.getTag();
+                }
+                viewHolder.brand.setText(entity.wechatCardEntityEntitys[position].brand);
+                viewHolder.type.setText(entity.wechatCardEntityEntitys[position].type);
+                viewHolder.remark.setText(entity.wechatCardEntityEntitys[position].remark);
+
+                ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(viewHolder.logo, R.drawable.share_via_barcode, R.drawable.launcher_icon);
+                imageLoader.get(entity.wechatCardEntityEntitys[position].logo, imageListener);
 
                 return convertView;
             }
@@ -107,9 +113,9 @@ public class WechatCardListFragment extends PageFragment<WechatMemberListEntity>
     }
 
     class ViewHolder {
-        public TextView nick;
-        public TextView points;
-        public TextView date;
-        public ImageView head;
+        public ImageView logo;
+        public TextView brand;
+        public TextView type;
+        public TextView remark;
     }
 }

@@ -19,8 +19,10 @@ import com.google.zxing.client.android.Intents;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.wechat.R;
+import com.kocomer.wechat.activity.WechatCardListActivity;
 import com.kocomer.wechat.activity.WechatMemberListActivity;
 import com.kocomer.wechat.activity.WechatOperatorHistoryActivity;
+import com.kocomer.wechat.activity.WechatScanCardActivity;
 import com.kocomer.wechat.activity.WechatScanMemberActivity;
 import com.kocomer.wechat.fragment.cardlist.WechatCardListFragment;
 import com.kocomer.wechat.helper.WechatConstants;
@@ -30,14 +32,21 @@ import com.kocomer.wechat.helper.WechatConstants;
  */
 
 public class WechatFragment extends ContentFragment implements View.OnClickListener {
+
     private LinearLayout layout;
     private LinearLayout contentLayout;
     private LinearLayout scancardLinearLayout;
 
     private ModulesEntity.Module.Cell[] cells;
 
-    public void setCells(ModulesEntity.Module.Cell[] cells) {
+    public WechatFragment setCells(ModulesEntity.Module.Cell[] cells) {
         this.cells = cells;
+        return this;
+    }
+
+    @Override
+    protected String setPageName() {
+        return "Wechat";
     }
 
     @Nullable
@@ -108,6 +117,15 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
                 }
             }
             break;
+            case WechatConstants.REQUESTCODE_CARD: {
+                String result = data.getStringExtra("result");
+                if (result != null && !"".equals(result)) {
+                    Intent intent = new Intent(getActivity(), WechatScanCardActivity.class);
+                    intent.putExtra("code", result);
+                    startActivity(intent);
+                }
+            }
+            break;
         }
     }
 
@@ -136,13 +154,31 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
             }
 
         } else if (i == R.id.fragment_wechat_scancard_ll) {//点击扫描营销卡
+            if (Build.VERSION.SDK_INT > 22) {
+                if (ContextCompat.checkSelfPermission(getActivity(),
+                        android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    //先判断有没有权限 ，没有就在这里进行权限的申请
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{android.Manifest.permission.CAMERA}, 0);
 
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), CaptureActivity.class);
+                    intent.setAction(Intents.Scan.ACTION);
+                    startActivityForResult(intent, WechatConstants.REQUESTCODE_CARD);
+                }
+            } else {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), CaptureActivity.class);
+                intent.setAction(Intents.Scan.ACTION);
+                startActivityForResult(intent, WechatConstants.REQUESTCODE_CARD);
+            }
         } else if (i == R.id.fragment_wechat_memberlist_ll) {//点击会员列表
             startActivity(new Intent(getActivity(), WechatMemberListActivity.class));
         } else if (i == R.id.fragment_wechat_operatorhistory_ll) {//点击操作日志
             startActivity(new Intent(getActivity(), WechatOperatorHistoryActivity.class));
-        } else if (i == R.id.fragment_wechat_cardlist_ll) {
-            startActivity(new Intent(getActivity(), WechatCardListFragment.class));
+        } else if (i == R.id.fragment_wechat_cardlist_ll) {//点击营销卡列表
+            startActivity(new Intent(getActivity(), WechatCardListActivity.class));
 
         }
     }

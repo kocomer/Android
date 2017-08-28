@@ -35,6 +35,11 @@ public class WechatMemberListFragment extends PageFragment<WechatMemberListEntit
     private int limit = 20;
     private ImageLoader imageLoader;
 
+    @Override
+    protected String setPageName() {
+        return "WechatMemberList";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -97,7 +102,7 @@ public class WechatMemberListFragment extends PageFragment<WechatMemberListEntit
                 viewHolder.points.setText(entity.wechatMemberEntitys[position].points);
                 viewHolder.date.setText(entity.wechatMemberEntitys[position].date);
 
-                ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(viewHolder.head, R.drawable.share_via_barcode, R.drawable.launcher_icon);
+                ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(viewHolder.head, R.drawable.loading, R.drawable.anonymous);
                 imageLoader.get(entity.wechatMemberEntitys[position].head, imageListener);
 
                 return convertView;

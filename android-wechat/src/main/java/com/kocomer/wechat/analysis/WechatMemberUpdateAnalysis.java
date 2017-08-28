@@ -15,7 +15,6 @@ public class WechatMemberUpdateAnalysis implements Analysis<WechatMemberUpdateEn
     @Override
     public WechatMemberUpdateEntity analysis(JSONObject jsonObject) throws JSONException {
         WechatMemberUpdateEntity entity = new WechatMemberUpdateEntity();
-        JSONObject memberJObj = jsonObject.getJSONObject("member");
 
         return entity;
     }

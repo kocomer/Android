@@ -38,6 +38,11 @@ public class WechatScanMemberFragment extends ContentFragment implements View.On
     private EditText balanceEt;
     private EditText pointEt;
 
+    @Override
+    protected String setPageName() {
+        return "WechatScanMember";
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {

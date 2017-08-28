@@ -16,7 +16,6 @@ public class PayHistoryEntity {
 
     public class PayHistory {
         public String paySource;
-        public String payer;
         public String money;
         public String desc;
         public String remark;

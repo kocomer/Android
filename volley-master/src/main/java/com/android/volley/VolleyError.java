@@ -27,4 +27,7 @@ public class VolleyError extends Exception {
         this.message = message;
     }
 
+    public VolleyError() {
+
+    }
 }

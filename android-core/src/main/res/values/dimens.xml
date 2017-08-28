@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="fragment_navigation_margin">6dp</dimen>
+    <dimen name="fragment_login_margin">10dp</dimen>
+    <dimen name="fragment_login_padding">6dp</dimen>
     <dimen name="fragment_item_margin">12dp</dimen>
     <dimen name="fragment_item_name">30sp</dimen>
     <dimen name="fragment_item_title_name">25sp</dimen>
+    <dimen name="fragment_navigation_textsize">18sp</dimen>
 
 </resources>

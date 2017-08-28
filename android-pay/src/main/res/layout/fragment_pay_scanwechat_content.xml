@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="支付金额" />
+            android:text="收款金额" />
 
         <EditText
             android:id="@+id/fragment_pay_scanwechat_content_money_et"
@@ -22,13 +22,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="输入需要支付的金额" />
+            android:hint="输入收款金额"
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/fragment_pay_scanwechat_content_scan_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="扫码收款" />
+        android:layout_gravity="center"
+        android:background="@drawable/money_selector"
+        android:clickable="true" />
 
 </LinearLayout>
