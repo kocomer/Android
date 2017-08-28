@@ -12,9 +12,10 @@ import com.kocomer.more.R;
  */
 
 public class MoreHelpActivity extends BaseActivity {
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_help);
     }
 }

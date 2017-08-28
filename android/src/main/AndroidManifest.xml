@@ -18,7 +18,8 @@
         <activity android:name="com.kocomer.android.activity.LoginActivity"></activity>
         <activity android:name="com.kocomer.android.activity.ModulesActivity"></activity>
     </application>
-
+    <meta-data android:value="57c1366167e58e05fb002bdf" android:name="UMENG_APPKEY"/>
+    <meta-data android:value="self" android:name="UMENG_CHANNEL"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

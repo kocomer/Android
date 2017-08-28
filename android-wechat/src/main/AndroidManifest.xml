@@ -9,5 +9,6 @@
         <activity android:name=".activity.WechatScanCardActivity" />
         <activity android:name=".activity.WechatCardListActivity" />
     </application>
-
+    <meta-data android:value="57c1366167e58e05fb002bdf" android:name="UMENG_APPKEY"/>
+    <meta-data android:value="self" android:name="UMENG_CHANNEL"/>
 </manifest>

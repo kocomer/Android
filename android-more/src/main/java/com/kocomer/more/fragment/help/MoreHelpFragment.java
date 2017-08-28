@@ -24,7 +24,7 @@ public class MoreHelpFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more_help_content, null);
-        WebView webView = (WebView) view.findViewById(R.id.fragment_setting_help_content_wv);
+        WebView webView = (WebView) view.findViewById(R.id.fragment_more_help_content_wv);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.baidu.com/");
         return view;

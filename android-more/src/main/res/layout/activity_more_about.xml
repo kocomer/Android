@@ -19,7 +19,7 @@
     </LinearLayout>
 
     <fragment
-        android:id="@+id/activity_setting_about_fragment"
+        android:id="@+id/activity_more_about_fragment"
         android:name="com.kocomer.more.fragment.about.MoreAboutFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
