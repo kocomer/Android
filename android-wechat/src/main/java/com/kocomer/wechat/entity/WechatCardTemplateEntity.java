@@ -5,7 +5,7 @@ package com.kocomer.wechat.entity;
  * Created by kocomer on 2017/8/8.
  */
 
-public class WechatCardListEntity {
+public class WechatCardTemplateEntity {
 
     public WechatCardEntity[] wechatCardEntityEntitys;
 
@@ -17,6 +17,7 @@ public class WechatCardListEntity {
     }
 
     public class WechatCardEntity {
+        public String cardId = "";
         public String type = "";
         public String logo = "";
         public String brand = "";

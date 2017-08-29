@@ -6,24 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
-import com.android.volley.toolbox.ImageLoader;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.core.helper.Constants;
-import com.kocomer.core.helper.ImageCache;
 import com.kocomer.wechat.R;
-import com.kocomer.wechat.analysis.WechatMemberAnalysis;
-import com.kocomer.wechat.analysis.WechatMemberUpdateAnalysis;
 import com.kocomer.wechat.analysis.WechatScanCardAnalysis;
 import com.kocomer.wechat.analysis.WechatScanCardConsumeAnalysis;
-import com.kocomer.wechat.entity.WechatCardListEntity;
-import com.kocomer.wechat.entity.WechatMemberEntity;
-import com.kocomer.wechat.entity.WechatMemberUpdateEntity;
 import com.kocomer.wechat.entity.WechatScanCardConsumeEntity;
 import com.kocomer.wechat.entity.WechatScanCardEntity;
 

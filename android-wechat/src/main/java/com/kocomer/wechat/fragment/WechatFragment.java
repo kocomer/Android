@@ -19,12 +19,11 @@ import com.google.zxing.client.android.Intents;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.wechat.R;
-import com.kocomer.wechat.activity.WechatCardListActivity;
+import com.kocomer.wechat.activity.WechatCardTemplateActivity;
 import com.kocomer.wechat.activity.WechatMemberListActivity;
 import com.kocomer.wechat.activity.WechatOperatorHistoryActivity;
 import com.kocomer.wechat.activity.WechatScanCardActivity;
 import com.kocomer.wechat.activity.WechatScanMemberActivity;
-import com.kocomer.wechat.fragment.cardlist.WechatCardListFragment;
 import com.kocomer.wechat.helper.WechatConstants;
 
 /**
@@ -74,8 +73,8 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
                     inflater.inflate(R.layout.fragment_wechat_operatorhistory, contentLayout).findViewById(R.id.fragment_wechat_operatorhistory_ll).setOnClickListener(this);
                 }
                 break;
-                case WechatConstants.CELL_WECHAT_CARDLIST: {//微信营销卡
-                    inflater.inflate(R.layout.fragment_wechat_cardlist, contentLayout).findViewById(R.id.fragment_wechat_cardlist_ll).setOnClickListener(this);
+                case WechatConstants.CELL_WECHAT_CARDTEMPLATE: {//微信营销卡
+                    inflater.inflate(R.layout.fragment_wechat_cardtemplate, contentLayout).findViewById(R.id.fragment_wechat_cardtemplate_ll).setOnClickListener(this);
                 }
                 break;
             }
@@ -177,8 +176,8 @@ public class WechatFragment extends ContentFragment implements View.OnClickListe
             startActivity(new Intent(getActivity(), WechatMemberListActivity.class));
         } else if (i == R.id.fragment_wechat_operatorhistory_ll) {//点击操作日志
             startActivity(new Intent(getActivity(), WechatOperatorHistoryActivity.class));
-        } else if (i == R.id.fragment_wechat_cardlist_ll) {//点击营销卡列表
-            startActivity(new Intent(getActivity(), WechatCardListActivity.class));
+        } else if (i == R.id.fragment_wechat_cardtemplate_ll) {//点击营销卡列表
+            startActivity(new Intent(getActivity(), WechatCardTemplateActivity.class));
 
         }
     }

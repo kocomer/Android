@@ -24,7 +24,8 @@ public interface WechatConstants {
     /**
      * 微信营销卡列表
      */
-    String CELL_WECHAT_CARDLIST = "wechat_cardList";
+    String CELL_WECHAT_CARDTEMPLATE= "wechat_cardTemplate";
+    String CELL_WECHAT_MEMBERTEMPLATE= "wechat_cardTemplate";
     /**
      * 扫描会员卡
      */

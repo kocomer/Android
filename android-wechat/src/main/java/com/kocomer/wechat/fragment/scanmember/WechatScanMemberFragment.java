@@ -33,6 +33,8 @@ public class WechatScanMemberFragment extends ContentFragment implements View.On
     private LinearLayout contentLayout;
     private ImageView headerIv;//头像
     private TextView nickNameTv;
+    private TextView pointTv;
+    private TextView balanceTv;
     private ImageLoader imageLoader;
     private Button submitBtn;
     private EditText balanceEt;
@@ -47,13 +49,16 @@ public class WechatScanMemberFragment extends ContentFragment implements View.On
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         contentLayout = (LinearLayout) inflater.inflate(R.layout.fragment_wechat_scanmember_content, null);
-        headerIv = (ImageView) contentLayout.findViewById(R.id.fragment_wechat_member_header_iv);
+        headerIv = (ImageView) contentLayout.findViewById(R.id.fragment_wechat_scanmember_header_iv);
         submitBtn = (Button) contentLayout.findViewById(R.id.fragment_wechat_member_submit);
         balanceEt = (EditText) contentLayout.findViewById(R.id.fragment_wechat_member_balance_et);
         pointEt = (EditText) contentLayout.findViewById(R.id.fragment_wechat_member_point_et);
 
         submitBtn.setOnClickListener(this);
-        nickNameTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_member_nickname_tv);
+        nickNameTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scanmember_nickname_tv);
+        pointTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scanmember_point_tv);
+        balanceTv = (TextView) contentLayout.findViewById(R.id.fragment_wechat_scanmember_balance_tv);
+
         loadContent(Request.Method.GET, Constants.STR_URL + "/wechat_scanMember.json?cardCode=" + code, null, new WechatMemberAnalysis());
         imageLoader = new ImageLoader(queue, new ImageCache());
         return contentLayout;
@@ -63,8 +68,10 @@ public class WechatScanMemberFragment extends ContentFragment implements View.On
     public void onContentLoaded(Object entity) {
         if (entity instanceof WechatMemberEntity) {
             WechatMemberEntity wechatMemberEntity = (WechatMemberEntity) entity;
+            pointTv.setText(wechatMemberEntity.point);
+            balanceTv.setText(wechatMemberEntity.balance);
 
-            ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(headerIv, R.drawable.share_via_barcode, R.drawable.launcher_icon);
+            ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(headerIv, R.drawable.loading, R.drawable.error);
             imageLoader.get(wechatMemberEntity.header, imageListener);
 
         } else if (entity instanceof WechatMemberUpdateEntity) {

@@ -5,16 +5,15 @@
     android:orientation="vertical">
 
 
-
     <ImageView
-        android:id="@+id/fragment_wechat_member_header_iv"
+        android:id="@+id/fragment_wechat_scanmember_header_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/launcher_icon" />
+        android:src="@drawable/anonymous" />
 
     <TextView
-        android:id="@+id/fragment_wechat_member_nickname_tv"
+        android:id="@+id/fragment_wechat_scanmember_nickname_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -33,11 +32,11 @@
             android:text="会员积分:" />
 
         <TextView
+            android:id="@+id/fragment_wechat_scanmember_point_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="10" />
+            android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,11 +52,11 @@
             android:text="会员余额:" />
 
         <TextView
+            android:id="@+id/fragment_wechat_scanmember_balance_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="10" />
+            android:gravity="center" />
     </LinearLayout>
 
     <TextView
@@ -82,7 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="输入变动积分" />
+            android:hint="输入变动积分"
+            android:inputType="number" />
 
     </LinearLayout>
 
@@ -103,8 +103,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
-            android:hint="输入变动金额" />
+            android:hint="输入变动金额"
+            android:inputType="numberDecimal" />
 
     </LinearLayout>
 

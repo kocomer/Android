@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.kocomer.core.fragment.BaseFragment;
+import com.kocomer.core.helper.Constants;
 import com.kocomer.more.R;
 
 /**
@@ -26,7 +27,7 @@ public class MoreFeedbackFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_more_feedback_content, null);
         WebView webView = (WebView) view.findViewById(R.id.fragment_more_feedback_content_wv);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://www.baidu.com/");
+        webView.loadUrl(Constants.STR_URL + "/customerFeedback.html");
         return view;
     }
 }

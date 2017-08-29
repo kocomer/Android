@@ -6,7 +6,7 @@
     android:padding="3dp">
 
     <ImageView
-        android:id="@+id/fragment_wechat_cardlist_content_item_head_iv"
+        android:id="@+id/fragment_wechat_cardtemplate_content_item_head_iv"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerVertical="true"
@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/fragment_wechat_memberlist_content_item_operator_ll"
-        android:layout_toRightOf="@+id/fragment_wechat_cardlist_content_item_head_iv"
+        android:layout_toLeftOf="@+id/fragment_wechat_cardtemplate_content_item_operator_ll"
+        android:layout_toRightOf="@+id/fragment_wechat_cardtemplate_content_item_head_iv"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -70,31 +70,31 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/fragment_wechat_cardlist_content_item_type_tv"
+                android:id="@+id/fragment_wechat_cardtemplate_content_item_type_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left" />
 
             <TextView
-                android:id="@+id/fragment_wechat_cardlist_content_item_brand_tv"
+                android:id="@+id/fragment_wechat_cardtemplate_content_item_brand_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left" />
 
             <TextView
-                android:id="@+id/fragment_wechat_cardlist_content_item_start_tv"
+                android:id="@+id/fragment_wechat_cardtemplate_content_item_start_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left" />
 
             <TextView
-                android:id="@+id/fragment_wechat_cardlist_content_item_end_tv"
+                android:id="@+id/fragment_wechat_cardtemplate_content_item_end_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left" />
 
             <TextView
-                android:id="@+id/fragment_wechat_memberlist_content_item_remark_tv"
+                android:id="@+id/fragment_wechat_cardtemplate_content_item_remark_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left" />
@@ -104,7 +104,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/fragment_wechat_memberlist_content_item_operator_ll"
+        android:id="@+id/fragment_wechat_cardtemplate_content_item_operator_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -112,19 +112,23 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/fragment_wechat_cardlist_content_item_qr_tv"
+            android:id="@+id/fragment_wechat_cardtemplate_content_item_qr_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/cardlist_selector"
+            android:clickable="true"
+            android:duplicateParentState="false"
             android:padding="@dimen/fragment_item_margin"
             android:text="二维码"
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/fragment_wechat_cardlist_content_item_send_tv"
+            android:id="@+id/fragment_wechat_cardtemplate_content_item_send_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/cardlist_selector"
+            android:clickable="true"
+            android:duplicateParentState="false"
             android:padding="@dimen/fragment_item_margin"
             android:text="投放"
             android:textColor="@color/white" />

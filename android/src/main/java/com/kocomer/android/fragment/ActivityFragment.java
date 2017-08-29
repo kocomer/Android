@@ -40,7 +40,7 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public String getURL() {
-        return Constants.STR_URL + "/activity.json?imei=test";
+        return Constants.STR_URL + "/activity.json?imei=test&apkVersion=" + Constants.version;
     }
 
     @Override

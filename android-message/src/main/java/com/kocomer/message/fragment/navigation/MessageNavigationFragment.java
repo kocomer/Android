@@ -44,7 +44,7 @@ public class MessageNavigationFragment extends ContentFragment {
         @Override
         public void run() {
             System.out.println("interrupted() = " + interrupted());
-            while (!interrupted()) {
+//            while (!interrupted()) {
                 System.out.println("======================");
                 loadContent(Constants.STR_URL + "/message_notice.json", new MessageNoticeAnalysis());
                 try {
@@ -52,7 +52,7 @@ public class MessageNavigationFragment extends ContentFragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
+//            }
         }
     };
 

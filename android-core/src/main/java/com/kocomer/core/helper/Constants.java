@@ -11,11 +11,12 @@ import java.util.HashMap;
  */
 
 public interface Constants {
-//        String STR_URL = "http://192.168.31.108:8080";
+    int version = 1;
+    //        String STR_URL = "http://192.168.31.108:8080";
 //        String STR_URL = "http://192.168.31.63:8080";
 //    String STR_URL = "http://192.168.149.42:8080";
-        String STR_URL = "https://pay.ipush.cc";
-//        String STR_URL = "http://mifi.ipush.cc";
+    String STR_URL = "https://pay.ipush.cc";
+    //        String STR_URL = "http://mifi.ipush.cc";
 //    String STR_URL = "http://192.168.43.20:8080";
     String STR_CORPORATIONCODE = "corporationCode";
     String STR_PLATFORMFINGER = "platformFinger";
