@@ -104,7 +104,7 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
 
     @Override
     public void onPageError(VolleyError error) {
-        showMsg("onPageError 网络错误");
+        showMsg(error.message);
     }
 
 

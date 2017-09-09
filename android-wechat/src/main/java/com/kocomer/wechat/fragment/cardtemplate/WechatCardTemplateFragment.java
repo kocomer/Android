@@ -124,7 +124,7 @@ public class WechatCardTemplateFragment extends PageFragment<WechatCardTemplateE
 
             ImageView imageView = new ImageView(getActivity());
             ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(imageView, R.drawable.unknown, R.drawable.error);
-            imageLoader.get(Constants.STR_URL + "/qrBar.img?cardId=" + cardId + "&corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger, imageListener);
+            imageLoader.get(Constants.STR_URL + "/cardQrBar.img?cardId=" + cardId + "&corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger, imageListener);
 
             new AlertDialog.Builder(getActivity()).setTitle("二维码").setView(imageView).create().show();
 

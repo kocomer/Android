@@ -2,12 +2,9 @@ package com.kocomer.pay.fragment;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +19,7 @@ import com.kocomer.pay.activity.PayListActivity;
 import com.kocomer.pay.activity.PayScanAlipayActivity;
 import com.kocomer.pay.activity.PayScanWechatActivity;
 import com.kocomer.pay.activity.PayWithdrawActivity;
+import com.kocomer.pay.activity.PayWithdrawSettingActivity;
 import com.kocomer.pay.helper.PayConstants;
 import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
@@ -76,6 +74,10 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
                 break;
                 case PayConstants.CELL_PAY_WITHDRAW: {
                     inflater.inflate(R.layout.fragment_pay_withdraw, contentLayout).findViewById(R.id.fragment_pay_withdraw_ll).setOnClickListener(this);
+                }
+                break;
+                case PayConstants.CELL_PAY_WITHDRAWSETTING: {
+                    inflater.inflate(R.layout.fragment_pay_withdrawsetting, contentLayout).findViewById(R.id.fragment_pay_withdrawsetting_ll).setOnClickListener(this);
                 }
                 break;
 
@@ -134,6 +136,8 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
             startActivity(new Intent(getActivity(), PayListActivity.class));
         } else if (i == R.id.fragment_pay_withdraw_ll) {
             startActivity(new Intent(getActivity(), PayWithdrawActivity.class));
+        } else if (i == R.id.fragment_pay_withdrawsetting_ll) {
+            startActivity(new Intent(getActivity(), PayWithdrawSettingActivity.class));
         }
     }
 }

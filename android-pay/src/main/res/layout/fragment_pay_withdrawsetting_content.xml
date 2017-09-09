@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="姓名：" />
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_realname_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="身份证号：" />
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_no_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ff0000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="当前状态：" />
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_withdraw_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ff0000" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_content_manual_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="手动取现" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_pay_withdrawsetting_content_manual_cb"
+            android:layout_toRightOf="@+id/fragment_pay_withdrawsetting_content_manual_tv"
+            android:text="\n优点：可以随时退款。可以选择支付宝或微信取现\n缺点：结算速度根据申请时间平台有延时" />
+
+        <CheckBox
+            android:id="@+id/fragment_pay_withdrawsetting_content_manual_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_content_auto_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="自动取现" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_pay_withdrawsetting_content_auto_cb"
+            android:layout_toRightOf="@+id/fragment_pay_withdrawsetting_content_auto_tv"
+            android:text="\n优点：结算快速\n缺点：不能退款资金根据消费渠道到账。如消费渠道是微信，则实时到账微信。如消费渠道是支付宝，则实时到账支付宝。实际取现金额必须大于一元" />
+
+        <CheckBox
+            android:id="@+id/fragment_pay_withdrawsetting_content_auto_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_content_day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="日结取现" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_pay_withdrawsetting_content_day_cb"
+            android:layout_toRightOf="@+id/fragment_pay_withdrawsetting_content_day_tv"
+            android:text="\n优点：可以退款\n缺点：资金到账稍有延后，平台自动选择支付宝或微信取现" />
+
+        <CheckBox
+            android:id="@+id/fragment_pay_withdrawsetting_content_day_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/fragment_pay_withdrawsetting_content_week_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="周结取现" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_pay_withdrawsetting_content_week_cb"
+            android:layout_toRightOf="@+id/fragment_pay_withdrawsetting_content_week_tv"
+            android:text="\n优点：可以退款可以选择支付宝或微信取现\n缺点：资金到账稍有延后" />
+
+        <CheckBox
+            android:id="@+id/fragment_pay_withdrawsetting_content_week_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/fragment_pay_withdrawsetting_update_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/fragment_item_margin"
+        android:text="更新"
+        android:textColor="@color/white" />
+
+</LinearLayout>

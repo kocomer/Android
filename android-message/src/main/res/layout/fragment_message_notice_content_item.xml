@@ -21,12 +21,6 @@
         android:textSize="@dimen/noticeDate" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_margin="@dimen/fragment_item_margin"
-        android:background="@color/colorgrey" />
-
-    <TextView
         android:id="@+id/fragment_message_mail_notice_content_item_notice_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

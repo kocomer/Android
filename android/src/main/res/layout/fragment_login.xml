@@ -36,9 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="输入密码"
+            android:inputType="textPassword"
             android:text="promote"
             android:textSize="@dimen/login_textsize" />
-
 
     </LinearLayout>
 

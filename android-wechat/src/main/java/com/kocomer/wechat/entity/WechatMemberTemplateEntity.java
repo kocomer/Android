@@ -15,6 +15,7 @@ public class WechatMemberTemplateEntity {
     }
 
     public class WechatMemberTemplate {
+        public String logo;
         public String brand;
         public String notice;
         public String desc;

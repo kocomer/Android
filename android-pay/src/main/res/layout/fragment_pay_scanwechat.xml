@@ -22,7 +22,7 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:gravity="center|left"
-        android:text="微信支付"
+        android:text="微信收款"
         android:textSize="@dimen/fragment_navigation_textsize" />
 
 

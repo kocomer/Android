@@ -21,12 +21,13 @@ public class WechatMemberTemplateAnalysis implements Analysis<WechatMemberTempla
         entity.crateWechatMemberTemplate(length);
         for (int i = 0; i < length; i++) {
             JSONObject memberJObj = memberTemplateJAry.getJSONObject(i);
-            entity.wechatMemberTemplates[i].brand = memberJObj.getString("brand");
-            entity.wechatMemberTemplates[i].cardId = memberJObj.getString("cardId");
-            entity.wechatMemberTemplates[i].desc = memberJObj.getString("desc");
-            entity.wechatMemberTemplates[i].notice = memberJObj.getString("notice");
-            entity.wechatMemberTemplates[i].prerogative = memberJObj.getString("prerogative");
-            entity.wechatMemberTemplates[i].remark = memberJObj.getString("remark");
+            entity.wechatMemberTemplates[i].logo = memberJObj.optString("logo");
+            entity.wechatMemberTemplates[i].brand = memberJObj.optString("brand");
+            entity.wechatMemberTemplates[i].cardId = memberJObj.optString("cardId");
+            entity.wechatMemberTemplates[i].desc = memberJObj.optString("desc");
+            entity.wechatMemberTemplates[i].notice = memberJObj.optString("notice");
+            entity.wechatMemberTemplates[i].prerogative = memberJObj.optString("prerogative");
+            entity.wechatMemberTemplates[i].remark = memberJObj.optString("remark");
         }
         return entity;
     }

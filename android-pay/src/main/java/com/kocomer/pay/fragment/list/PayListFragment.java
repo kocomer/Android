@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.analysis.Analysis;
-import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.core.fragment.PageFragment;
 import com.kocomer.core.helper.Constants;
 import com.kocomer.pay.R;
@@ -115,7 +113,7 @@ public class PayListFragment extends PageFragment<PayListEntity> implements View
                 viewHolder.remark = (TextView) convertView.findViewById(R.id.fragment_pay_list_content_item_remark_tv);
                 viewHolder.status = (TextView) convertView.findViewById(R.id.fragment_pay_list_content_item_status_tv);
                 viewHolder.refund = (TextView) convertView.findViewById(R.id.fragment_pay_list_content_item_refund_tv);
-                viewHolder.refundBtn = (Button) convertView.findViewById(R.id.fragment_pay_list_content_item_refund_btn);
+                viewHolder.refundBtn = (TextView) convertView.findViewById(R.id.fragment_pay_list_content_item_refundsubmit_tv);
                 viewHolder.refundBtn.setTag(R.id.refund, position);
                 viewHolder.refundBtn.setOnClickListener(PayListFragment.this);
                 convertView.setTag(viewHolder);
@@ -142,13 +140,13 @@ public class PayListFragment extends PageFragment<PayListEntity> implements View
         public TextView source;
         public TextView status;
         public TextView refund;
-        public Button refundBtn;
+        public TextView refundBtn;
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.fragment_pay_list_content_item_refund_btn) {
+        if (id == R.id.fragment_pay_list_content_item_refundsubmit_tv) {
             int position = (int) v.getTag(R.id.refund);
             final PayListEntity.PayListItem payListItem = this.payListEntity.payListItems[position];
 

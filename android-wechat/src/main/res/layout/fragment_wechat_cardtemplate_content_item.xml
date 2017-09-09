@@ -125,6 +125,7 @@
         <TextView
             android:id="@+id/fragment_wechat_cardtemplate_content_item_send_tv"
             android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_item_margin"
             android:layout_height="wrap_content"
             android:background="@drawable/cardlist_selector"
             android:clickable="true"

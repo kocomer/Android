@@ -12,21 +12,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:layout_weight="1"
-                android:text="钱包总额" />
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/fragment_pay_withdraw_content_cny_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/redround_shape"
+                android:padding="@dimen/round_padding" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="钱包总额" />
+
+
         </LinearLayout>
 
         <!--<LinearLayout-->

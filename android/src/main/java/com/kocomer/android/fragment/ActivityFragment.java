@@ -1,9 +1,13 @@
 package com.kocomer.android.fragment;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +23,8 @@ import android.widget.EditText;
 import com.android.volley.analysis.Analysis;
 import com.kocomer.android.R;
 import com.kocomer.android.activity.LoginActivity;
+import com.kocomer.android.analysis.CheckVersionAnalysis;
+import com.kocomer.android.entity.CheckVersionEntity;
 import com.kocomer.core.analysis.ActivityAnalysis;
 import com.kocomer.core.analysis.LoginAnalysis;
 import com.kocomer.core.entity.ActivityEntity;
@@ -27,6 +33,7 @@ import com.kocomer.core.helper.Constants;
 import com.kocomer.core.helper.SesssionHelper;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * 激活登录页面
@@ -40,7 +47,8 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
 
     @Override
     public String getURL() {
-        return Constants.STR_URL + "/activity.json?imei=test&apkVersion=" + Constants.version;
+        String imei = ((TelephonyManager) getActivity().getSystemService(Activity.TELEPHONY_SERVICE)).getDeviceId();
+        return Constants.STR_URL + "/activity.json?imei=" + imei + "&version=" + Constants.version + "&model=" + android.os.Build.MODEL.replace(" ", "");
     }
 
     @Override
@@ -76,9 +84,34 @@ public class ActivityFragment extends PageFragment<ActivityEntity> {
         SesssionHelper.setDeviceSession(getActivity(), entity.deviceSession);
         System.out.print(entity.deviceSession);
         System.out.println("callback");
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
-        startActivity(intent);
-        getActivity().finish();
+        loadContent(Constants.STR_URL + "/checkVersion.json?&version=" + Constants.version, new CheckVersionAnalysis());
+    }
+
+    @Override
+    public void onContentLoaded(Object entity) {
+        System.out.println(Constants.STR_URL + "/download.apk?corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger + "&deviceSession=" + "&version=" + Constants.version);
+
+        if (entity instanceof CheckVersionEntity) {
+            CheckVersionEntity checkVersionEntity = (CheckVersionEntity) entity;
+            if (checkVersionEntity.update) {
+                new AlertDialog.Builder(getActivity()).setMessage("版本升级").setPositiveButton("升级", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Uri uri = Uri.parse(Constants.STR_URL + "/download.apk?corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger + "&deviceSession=" + "&version=" + Constants.version);   //指定网址
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);           //指定Action
+                        intent.setData(uri);                            //设置Uri
+                        startActivity(intent);        //启动Activity
+                        getActivity().finish();
+                    }
+                }).create().show();
+            } else {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+
+        }
     }
 
     @Override

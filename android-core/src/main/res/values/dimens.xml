@@ -7,5 +7,7 @@
     <dimen name="fragment_item_name">30sp</dimen>
     <dimen name="fragment_item_title_name">25sp</dimen>
     <dimen name="fragment_navigation_textsize">18sp</dimen>
+    <dimen name="fragment_version_textsize">26sp</dimen>
+    <dimen name="round_padding">26sp</dimen>
 
 </resources>

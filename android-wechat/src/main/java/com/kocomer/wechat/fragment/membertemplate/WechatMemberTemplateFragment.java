@@ -88,36 +88,61 @@ public class WechatMemberTemplateFragment extends PageFragment<WechatMemberTempl
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
+                ViewHolder viewHolder = null;
+                if (convertView == null) {
+                    viewHolder = new ViewHolder();
+                    convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_wechat_membertemplate_content_item, null);
+                    viewHolder.brand = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_brand_tv);
+                    viewHolder.desc = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_desc_tv);
+                    viewHolder.remark = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_remark_tv);
+                    viewHolder.notice = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_notice_tv);
+                    viewHolder.prerogative = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_prerogative_tv);
+                    viewHolder.qr = (TextView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_qr_tv);
+                    viewHolder.logo = (ImageView) convertView.findViewById(R.id.fragment_wechat_membertemplate_content_item_logo_iv);
+                    convertView.setTag(viewHolder);
+                } else {
+                    viewHolder = (ViewHolder) convertView.getTag();
+                }
+                viewHolder.brand.setText(entity.wechatMemberTemplates[position].brand);
+                viewHolder.desc.setText(entity.wechatMemberTemplates[position].desc);
+                viewHolder.remark.setText(entity.wechatMemberTemplates[position].remark);
+                viewHolder.notice.setText(entity.wechatMemberTemplates[position].notice);
+                viewHolder.prerogative.setText(entity.wechatMemberTemplates[position].prerogative);
+                viewHolder.qr.setOnClickListener(WechatMemberTemplateFragment.this);
+                viewHolder.qr.setTag(R.id.qr, entity.wechatMemberTemplates[position].cardId);
+
+                ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(viewHolder.logo, R.drawable.loading, R.drawable.error);
+                imageLoader.get(entity.wechatMemberTemplates[position].logo, imageListener);
 
                 return convertView;
             }
         });
     }
 
+    class ViewHolder {
+        public ImageView logo;
+        public TextView brand;
+        public TextView desc;
+        public TextView notice;
+        public TextView prerogative;
+        public TextView remark;
+        public TextView qr;
+    }
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.fragment_wechat_cardtemplate_content_item_qr_tv) {
+        if (id == R.id.fragment_wechat_membertemplate_content_item_qr_tv) {
             Object cardId = v.getTag(R.id.qr);
 
             ImageView imageView = new ImageView(getActivity());
             ImageLoader.ImageListener imageListener = ImageLoader.getImageListener(imageView, R.drawable.unknown, R.drawable.error);
-            imageLoader.get(Constants.STR_URL + "/qrBar.img?cardId=" + cardId + "&corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger, imageListener);
+            imageLoader.get(Constants.STR_URL + "/memberQrBar.img?cardId=" + cardId + "&corporationCode=" + Constants.coropratincode + "&platformFinger=" + Constants.platformFinger + "&storeFinger=" + Constants.storeFinger, imageListener);
 
             new AlertDialog.Builder(getActivity()).setTitle("二维码").setView(imageView).create().show();
 
-        } else if (id == R.id.fragment_wechat_cardtemplate_content_item_send_tv) {
-            Object cardId = v.getTag(R.id.send);
         }
     }
 
-    class ViewHolder {
-        public ImageView logo;
-        public TextView brand;
-        public TextView notice;
-        public TextView desc;
-        public TextView cardId;
-        public TextView prerogative;
-        public TextView remark;
-    }
+
 }

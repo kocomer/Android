@@ -18,7 +18,7 @@ import com.kocomer.more.R;
 public class MoreHelpFragment extends BaseFragment {
     @Override
     protected String setPageName() {
-        return "SettingHelp";
+        return "MoreHelp";
     }
 
     @Nullable
