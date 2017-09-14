@@ -29,5 +29,17 @@ public interface Constants {
      * 雇员模块
      */
     String MODULE_EMPLOYEE = "employee";
+    /**
+     * 设备管理模块
+     */
+    String MODULE_IOT = "iot";
+    /**
+     * 商城管理模块
+     */
+    String MODULE_MALL = "mall";
+    /**
+     * 物流管理模块
+     */
+    String MODULE_DELIVERY = "delivery";
 
 }

@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/activity_pay_history_fragment"
-        android:name="com.kocomer.pay.fragment.history.PayHistoryFragment"
+        android:name="com.kocomer.pay.manager.fragment.history.PayHistoryFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
 </LinearLayout>

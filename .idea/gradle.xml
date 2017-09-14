@@ -12,9 +12,9 @@
             <option value="$PROJECT_DIR$/android-alipay" />
             <option value="$PROJECT_DIR$/android-core" />
             <option value="$PROJECT_DIR$/android-corporation" />
+            <option value="$PROJECT_DIR$/android-delivery" />
             <option value="$PROJECT_DIR$/android-employee" />
-            <option value="$PROJECT_DIR$/android-flow" />
-            <option value="$PROJECT_DIR$/android-live" />
+            <option value="$PROJECT_DIR$/android-iot" />
             <option value="$PROJECT_DIR$/android-mall" />
             <option value="$PROJECT_DIR$/android-map" />
             <option value="$PROJECT_DIR$/android-message" />

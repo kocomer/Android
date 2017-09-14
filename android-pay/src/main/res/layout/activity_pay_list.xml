@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/activity_pay_list_fragment"
-        android:name="com.kocomer.pay.fragment.list.PayListFragment"
+        android:name="com.kocomer.pay.manager.fragment.list.PayListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
 </LinearLayout>

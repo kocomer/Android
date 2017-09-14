@@ -7,9 +7,9 @@
       <module fileurl="file://$PROJECT_DIR$/android-alipay/android-alipay.iml" filepath="$PROJECT_DIR$/android-alipay/android-alipay.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-core/android-core.iml" filepath="$PROJECT_DIR$/android-core/android-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-corporation/android-corporation.iml" filepath="$PROJECT_DIR$/android-corporation/android-corporation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-delivery/android-delivery.iml" filepath="$PROJECT_DIR$/android-delivery/android-delivery.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-employee/android-employee.iml" filepath="$PROJECT_DIR$/android-employee/android-employee.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android-flow/android-flow.iml" filepath="$PROJECT_DIR$/android-flow/android-flow.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android-live/android-live.iml" filepath="$PROJECT_DIR$/android-live/android-live.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-iot/android-iot.iml" filepath="$PROJECT_DIR$/android-iot/android-iot.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-mall/android-mall.iml" filepath="$PROJECT_DIR$/android-mall/android-mall.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-map/android-map.iml" filepath="$PROJECT_DIR$/android-map/android-map.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-message/android-message.iml" filepath="$PROJECT_DIR$/android-message/android-message.iml" />

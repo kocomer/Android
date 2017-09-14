@@ -39,4 +39,8 @@ dependencies {
     compile project(':android-employee')
     compile project(':android-message')
     compile project(':android-more')
+    compile project(':android-iot')
+    compile project(':android-mall')
+    compile project(':android-delivery')
+    compile project(':android-map')
 }

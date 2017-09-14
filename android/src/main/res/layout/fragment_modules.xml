@@ -72,6 +72,33 @@
                 android:visibility="gone"></RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/fragment_modules_foot_iot_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_modules_foot_mall_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_modules_foot_delivery_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:visibility="gone"></RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/fragment_modules_foot_more_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

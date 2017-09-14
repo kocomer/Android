@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="登录名"
-            android:text="peng"
+            android:text="test"
             android:textSize="@dimen/login_textsize" />
 
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:hint="输入密码"
             android:inputType="textPassword"
-            android:text="promote"
+            android:text="test"
             android:textSize="@dimen/login_textsize" />
 
     </LinearLayout>

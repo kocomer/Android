@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name="com.kocomer.android.activity.ActivityActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +19,14 @@
         <activity android:name="com.kocomer.android.activity.LoginActivity"></activity>
         <activity android:name="com.kocomer.android.activity.ModulesActivity"></activity>
     </application>
-    <meta-data android:value="57c1366167e58e05fb002bdf" android:name="UMENG_APPKEY"/>
-    <meta-data android:value="self" android:name="UMENG_CHANNEL"/>
+
+    <meta-data
+        android:name="UMENG_APPKEY"
+        android:value="57c1366167e58e05fb002bdf" />
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="self" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />

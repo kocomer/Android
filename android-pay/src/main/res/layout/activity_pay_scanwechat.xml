@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/activity_pay_scanwechat_fragment"
-        android:name="com.kocomer.pay.fragment.wechat.PayScanWechatFragment"
+        android:name="com.kocomer.pay.manager.fragment.wechat.PayScanWechatFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
 </LinearLayout>

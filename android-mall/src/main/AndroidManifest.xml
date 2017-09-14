@@ -3,7 +3,9 @@
     package="com.kocomer.mall">
 
     <application>
-        <activity android:name="com.kocomer.mall.activity.MallCommodityListActivity"></activity>
+        <activity android:name=".manager.activity.MallDeliveryListActivity"></activity>
+        <activity android:name=".manager.activity.MallOrderListActivity"></activity>
+        <activity android:name=".manager.activity.MallCommodityListActivity"></activity>
     </application>
 
 </manifest>
