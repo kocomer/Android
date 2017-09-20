@@ -12,6 +12,7 @@ import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.iot.R;
 import com.kocomer.iot.helper.IotConstants;
+import com.kocomer.iot.manager.activity.IotBlackActivity;
 import com.kocomer.iot.manager.activity.IotRouterActivity;
 
 /**
@@ -49,6 +50,10 @@ public class IotFragment extends ContentFragment implements View.OnClickListener
                     inflater.inflate(R.layout.fragment_iot_router, contentLayout).findViewById(R.id.fragment_iot_router_ll).setOnClickListener(this);
                 }
                 break;
+                case IotConstants.CELL_IOT_BLACK: {//黑名单
+                    inflater.inflate(R.layout.fragment_iot_black, contentLayout).findViewById(R.id.fragment_iot_black_ll).setOnClickListener(this);
+                }
+                break;
             }
         }
         return layout;
@@ -58,8 +63,10 @@ public class IotFragment extends ContentFragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.fragment_iot_router_ll) {//
+        if (i == R.id.fragment_iot_router_ll) {//路由管理
             startActivity(new Intent(getActivity(), IotRouterActivity.class));
+        }else if (i == R.id.fragment_iot_black_ll){//黑名单
+            startActivity(new Intent(getActivity(), IotBlackActivity.class));
         }
     }
 }

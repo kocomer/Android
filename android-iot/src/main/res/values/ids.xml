@@ -3,4 +3,5 @@
     <item name="shutdown" type="id" />
     <item name="restart" type="id" />
     <item name="black" type="id" />
+    <item name="remove" type="id" />
 </resources>

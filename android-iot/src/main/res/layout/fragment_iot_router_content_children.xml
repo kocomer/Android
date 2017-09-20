@@ -58,32 +58,26 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fragment_iot_router_content_children_black_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/fragment_login_margin"
+                android:background="@drawable/btn_selector"
+                android:clickable="true"
+                android:duplicateParentState="false"
+                android:gravity="center"
+                android:padding="18dp"
+                android:text="加入黑名单"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/fragment_iot_router_content_children_black_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="加入黑名单" />
-
-        <Button
-            android:id="@+id/fragment_iot_router_content_children_remark_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="加备注" />
-
-        <Button
-            android:id="@+id/fragment_iot_router_content_children_force_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="强制下线" />
-    </RelativeLayout>
 </LinearLayout>

@@ -17,6 +17,8 @@ import com.kocomer.core.fragment.PageFragment;
 import com.kocomer.core.helper.Constants;
 import com.kocomer.iot.R;
 import com.kocomer.iot.analysis.RouterAnalysis;
+import com.kocomer.iot.analysis.RouterBlackAnalysis;
+import com.kocomer.iot.entity.RouterBlackEntity;
 import com.kocomer.iot.entity.RouterEntity;
 
 import java.util.HashMap;
@@ -105,20 +107,17 @@ public class IotRouterFragment extends PageFragment<RouterEntity> implements Vie
                     groupViewHolder.nameTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_group_name_tv);
                     groupViewHolder.statusIv = (ImageView) convertView.findViewById(R.id.fragment_iot_router_content_group_status_iv);
                     groupViewHolder.serialTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_group_serial_tv);
-                    groupViewHolder.restartTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_group_restart_tv);
-                    groupViewHolder.shutdownTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_group_shutdown_tv);
                     convertView.setTag(groupViewHolder);
                 } else {
                     groupViewHolder = (GroupViewHolder) convertView.getTag();
                 }
+                if (!entity.routers[groupPosition].online) {
+                    groupViewHolder.statusIv.setImageResource(R.drawable.device_offline);
+                }
                 groupViewHolder.nameTv.setText(entity.routers[groupPosition].name);
                 groupViewHolder.serialTv.setText(entity.routers[groupPosition].serial);
 
-                groupViewHolder.shutdownTv.setTag(R.id.shutdown, entity.routers[groupPosition].id);
-                groupViewHolder.shutdownTv.setOnClickListener(IotRouterFragment.this);
 
-                groupViewHolder.restartTv.setTag(R.id.restart, entity.routers[groupPosition].id);
-                groupViewHolder.restartTv.setOnClickListener(IotRouterFragment.this);
                 return convertView;
             }
 
@@ -131,10 +130,10 @@ public class IotRouterFragment extends PageFragment<RouterEntity> implements Vie
                     childViewHolder.nameTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_children_name_tv);
                     childViewHolder.dateTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_children_date_tv);
                     childViewHolder.updateTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_children_update_tv);
-                    childViewHolder.blackBtn = (Button) convertView.findViewById(R.id.fragment_iot_router_content_children_black_btn);
+                    childViewHolder.blackTv = (TextView) convertView.findViewById(R.id.fragment_iot_router_content_children_black_tv);
 
-                    childViewHolder.blackBtn.setTag(R.id.black, entity.routers[groupPosition].clients[childPosition].id);
-                    childViewHolder.blackBtn.setOnClickListener(IotRouterFragment.this);
+                    childViewHolder.blackTv.setTag(R.id.black, entity.routers[groupPosition].clients[childPosition].name);
+                    childViewHolder.blackTv.setOnClickListener(IotRouterFragment.this);
 
                     convertView.setTag(childViewHolder);
                 } else {
@@ -158,8 +157,6 @@ public class IotRouterFragment extends PageFragment<RouterEntity> implements Vie
     class GroupViewHolder {
         TextView nameTv;//名字
         TextView serialTv;//名字
-        TextView shutdownTv;//关机
-        TextView restartTv;//重启
         ImageView statusIv;//状态
     }
 
@@ -168,28 +165,25 @@ public class IotRouterFragment extends PageFragment<RouterEntity> implements Vie
         TextView dateTv;//登录时间
         TextView updateTv;//更新时间
         TextView blackTv;//黑名单
-        Button blackBtn;
     }
 
     @Override
     public void onContentLoaded(Object entity) {
-
+        if (entity instanceof RouterBlackEntity) {
+            RouterBlackEntity routerBlackEntity = (RouterBlackEntity) entity;
+            showMsg("增加成功");
+        }
     }
 
     @Override
     public void onClick(View v) {
-        System.out.println("000" + v);
         int id = v.getId();
-        if (id == R.id.fragment_iot_router_content_group_shutdown_tv) {//关机
-            String idStr = (String) v.getTag(R.id.shutdown);
+        if (id == R.id.fragment_iot_router_content_children_black_tv) {//黑名单
+            String clientMac = (String) v.getTag(R.id.black);
             HashMap<String, String> params = new HashMap<>();
-            params.put("money", idStr);
-
-        } else if (id == R.id.fragment_iot_router_content_group_restart_tv) {//重启
-            String idStr = (String) v.getTag(R.id.restart);
-        } else if (id == R.id.fragment_iot_router_content_children_black_btn) {//黑名单
-            String idStr = (String) v.getTag(R.id.black);
-            System.out.println("====================--");
+            params.put("command", "black");
+            params.put("params", clientMac);
+            loadContent(Constants.STR_URL + "/iot_router.json", params, new RouterBlackAnalysis());
         }
 //        HashMap<String, String> params = new HashMap<>();
 //        params.put("money", cny.getText().toString());

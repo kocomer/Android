@@ -60,7 +60,6 @@ public class SesssionHelper {
      * @return
      */
     public static String getDeviceSession(Activity activity) {
-        SharedPreferences share = activity.getSharedPreferences(deviceSessionFile, MODE_PRIVATE);
         return activity == null ? "" : activity.getSharedPreferences(deviceSessionFile, MODE_PRIVATE).getString(deviceSessionKey, "");
     }
 }

@@ -4,6 +4,7 @@
 
     <application>
         <activity android:name=".manager.activity.IotRouterActivity"></activity>
+        <activity android:name=".manager.activity.IotBlackActivity"></activity>
     </application>
 
 </manifest>

@@ -28,8 +28,38 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
     protected RequestQueue queue;
 
     private AlertDialog.Builder normalDialog;
+    private AlertDialog.Builder loadingBuilder;
+    private AlertDialog loadingDialog;
+
+    /**
+     * 展示加载框
+     */
+    protected void showLoading() {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
+        loadingBuilder.setTitle("温馨提示");
+        loadingDialog = loadingBuilder.setMessage("加载中，请稍后").show();
+
+    }
+
+    /**
+     * 取消加载框
+     */
+    protected void cancelLoading() {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+    }
 
     protected void showMsg(String msg) {
+        if (getActivity() == null || getActivity().isFinishing()) {
+            return;
+        }
+        System.out.println("getActivity().isFinishing() = " + getActivity().isFinishing());
         normalDialog.setTitle("温馨提示");
         normalDialog.setMessage(msg);
         normalDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -46,6 +76,13 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
         queue = Volley.newRequestQueue(this.getActivity());
         queue.start();
         normalDialog = new AlertDialog.Builder(getActivity());
+        loadingBuilder = new AlertDialog.Builder(getActivity());
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        queue.stop();
     }
 
     /**
@@ -105,12 +142,13 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
 
     @Override
     public void onContentBefore() {
-
+        showLoading();
     }
 
     @Override
     public void onContentAfter() {
-
+        System.out.println("onContentAfteronContentAfteronContentAfter");
+        cancelLoading();
     }
 
     @Override

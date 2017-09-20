@@ -94,12 +94,12 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
 
     @Override
     public void onPageBefore() {
-
+        showLoading();
     }
 
     @Override
     public void onPageAfter() {
-
+        cancelLoading();
     }
 
     @Override

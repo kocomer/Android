@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="30dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:height="80dp" />
+
+    <ImageView
+        android:id="@+id/fragment_iot_router_content_group_status_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="60dp"
+        android:src="@drawable/device_online" />
 
     <TextView
         android:id="@+id/fragment_iot_router_content_group_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/fragment_iot_router_content_group_status_iv"
+
         android:text="测试" />
 
     <TextView
@@ -28,40 +42,5 @@
         android:layout_toRightOf="@+id/fragment_iot_router_content_group_split_tv"
         android:text="串号" />
 
-    <ImageView
-        android:id="@+id/fragment_iot_router_content_group_status_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/fragment_iot_router_content_group_serial_tv"
-        android:src="@drawable/device_online" />
 
-
-    <TextView
-        android:id="@+id/fragment_iot_router_content_group_shutdown_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/fragment_login_margin"
-        android:background="@drawable/btn_selector"
-        android:clickable="true"
-        android:duplicateParentState="false"
-        android:padding="18dp"
-        android:text="关机"
-        android:textColor="@color/white" />
-
-    <TextView
-        android:id="@+id/fragment_iot_router_content_group_restart_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/fragment_login_margin"
-        android:layout_toLeftOf="@+id/fragment_iot_router_content_group_shutdown_tv"
-        android:background="@drawable/btn_selector"
-        android:clickable="true"
-        android:duplicateParentState="false"
-        android:padding="18dp"
-        android:text="重启"
-        android:textColor="@color/white" />
 </RelativeLayout>

@@ -40,32 +40,32 @@ public class MessageNavigationFragment extends ContentFragment {
 
     private ImageView pointIv;
 
-    private Thread thread = new Thread() {
-        @Override
-        public void run() {
-            System.out.println("interrupted() = " + interrupted());
-//            while (!interrupted()) {
-                System.out.println("======================");
-                loadContent(Constants.STR_URL + "/message_notice.json", new MessageNoticeAnalysis());
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-//            }
-        }
-    };
+//    private Thread thread = new Thread() {
+//        @Override
+//        public void run() {
+//            System.out.println("interrupted() = " + interrupted());
+////            while (!interrupted()) {
+//                System.out.println("======================");
+//                loadContent(Constants.STR_URL + "/message_notice.json", new MessageNoticeAnalysis());
+//                try {
+//                    Thread.sleep(10000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+////            }
+//        }
+//    };
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        thread.start();
+//        thread.start();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        thread.interrupt();
+//        thread.interrupt();
     }
 
 
