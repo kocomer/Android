@@ -31,6 +31,8 @@ import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.PageFragment;
 import com.kocomer.corporation.fragment.CorporationFragment;
 import com.kocomer.corporation.fragment.navigation.CorporationNavigationFragment;
+import com.kocomer.repair.manager.fragment.RepairFragment;
+import com.kocomer.repair.manager.fragment.navigation.RepairNavigationFragment;
 import com.kocomer.wechat.fragment.WechatFragment;
 import com.kocomer.wechat.fragment.navigation.WechatNavigationFragment;
 import com.umeng.analytics.MobclickAgent;
@@ -57,6 +59,7 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
     private RelativeLayout iotNavigationLayout;
     private RelativeLayout mallNavigationLayout;
     private RelativeLayout deliveryNavigationLayout;
+    private RelativeLayout repairNavigationLayout;
 
     private ModulesEntity modulesEntity;
 
@@ -79,6 +82,8 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
     private MallNavigationFragment mallNavigationFragment;
     //物流管理导航
     private DeliveryNavigationFragment deliveryNavigationFragment;
+    //维修管理导航
+    private RepairNavigationFragment repairNavigationFragment;
 
     @Nullable
     @Override
@@ -87,6 +92,7 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
         footLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_rl);
         bodyLayout = (LinearLayout) layout.findViewById(R.id.fragment_modules_body_ll);
 
+        repairNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_repair_rl);
         wechatNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_wechat_rl);
         corporationNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_corporation_rl);
         payNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_pay_rl);
@@ -97,6 +103,7 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
         mallNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_mall_rl);
         deliveryNavigationLayout = (RelativeLayout) layout.findViewById(R.id.fragment_modules_foot_delivery_rl);
 
+        repairNavigationLayout.setOnClickListener(this);
         wechatNavigationLayout.setOnClickListener(this);
         corporationNavigationLayout.setOnClickListener(this);
         payNavigationLayout.setOnClickListener(this);
@@ -159,14 +166,18 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
                 iotNavigationFragment = new IotNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_iot_rl, iotNavigationFragment);
                 iotNavigationLayout.setVisibility(View.VISIBLE);
-            } else if (Constants.MODULE_MALL.equals(module.code)) {
+            } else if (Constants.MODULE_MALL.equals(module.code)) {//商城管理
                 mallNavigationFragment = new MallNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_mall_rl, mallNavigationFragment);
                 mallNavigationLayout.setVisibility(View.VISIBLE);
-            } else if (Constants.MODULE_DELIVERY.equals(module.code)) {
+            } else if (Constants.MODULE_DELIVERY.equals(module.code)) {//配送管理
                 deliveryNavigationFragment = new DeliveryNavigationFragment();
                 ft.add(R.id.fragment_modules_foot_delivery_rl, deliveryNavigationFragment);
                 deliveryNavigationLayout.setVisibility(View.VISIBLE);
+            } else if (Constants.MODULE_REPAIR.equals(module.code)) {//维修管理
+                repairNavigationFragment = new RepairNavigationFragment();
+                ft.add(R.id.fragment_modules_foot_repair_rl, repairNavigationFragment);
+                repairNavigationLayout.setVisibility(View.VISIBLE);
             }
 
         }
@@ -205,9 +216,19 @@ public class ModulesFragment extends PageFragment<ModulesEntity> implements View
         if (deliveryNavigationFragment != null) {
             deliveryNavigationFragment.normalCallback();
         }
+        if (repairNavigationFragment != null) {
+            repairNavigationFragment.normalCallback();
+        }
         moreNavigationFragment.normalCallback();
 
         switch (v.getId()) {
+            case R.id.fragment_modules_foot_repair_rl: {
+                MobclickAgent.onEvent(getActivity(), "Repair");
+                repairNavigationFragment.selectedCallback();
+                ft.replace(R.id.fragment_modules_body_ll, new RepairFragment().setCells(getCells(modulesEntity, Constants.MODULE_REPAIR)));
+
+            }
+            break;
             case R.id.fragment_modules_foot_more_rl: {
                 MobclickAgent.onEvent(getActivity(), "More");
                 moreNavigationFragment.selectedCallback();

@@ -41,5 +41,9 @@ public interface Constants {
      * 物流管理模块
      */
     String MODULE_DELIVERY = "delivery";
+    /**
+     * 维修管理模块
+     */
+    String MODULE_REPAIR = "repair";
 
 }

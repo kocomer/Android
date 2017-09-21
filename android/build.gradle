@@ -43,4 +43,5 @@ dependencies {
     compile project(':android-mall')
     compile project(':android-delivery')
     compile project(':android-map')
+    compile project(':android-repair')
 }
