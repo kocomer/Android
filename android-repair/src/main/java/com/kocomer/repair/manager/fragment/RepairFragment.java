@@ -13,6 +13,7 @@ import com.kocomer.core.entity.ModulesEntity;
 import com.kocomer.core.fragment.ContentFragment;
 import com.kocomer.repair.R;
 import com.kocomer.repair.helper.RepairConstants;
+import com.kocomer.repair.manager.activity.RepairConfigActivity;
 import com.kocomer.repair.manager.activity.RepairEngineerActivity;
 import com.kocomer.repair.manager.activity.RepairRealActivity;
 import com.kocomer.repair.manager.fragment.task.RepairTaskFragment;
@@ -29,7 +30,7 @@ public class RepairFragment extends ContentFragment implements View.OnClickListe
 
     private LinearLayout layout;
     private LinearLayout contentLayout;
-    private LinearLayout scancardLinearLayout;
+    private LinearLayout configLayout;
 
     private ModulesEntity.Module.Cell[] cells;
 
@@ -42,10 +43,13 @@ public class RepairFragment extends ContentFragment implements View.OnClickListe
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         layout = (LinearLayout) inflater.inflate(R.layout.fragment_repair, null);
-        contentLayout = (LinearLayout) layout.findViewById(R.id.fragment_wechat_content_ll);
+        contentLayout = (LinearLayout) layout.findViewById(R.id.fragment_repair_content_ll);
+        configLayout = (LinearLayout) layout.findViewById(R.id.fragment_repair_config_position_ll);
+
         int length = cells.length;
         for (int i = 0; i < length; i++) {
             final ModulesEntity.Module.Cell cell = cells[i];
+            System.out.println("cell.code = " + cell.code);
             switch (cell.code) {
                 case RepairConstants.CELL_REPAIR_REAL: {//实名认证
                     inflater.inflate(R.layout.fragment_repair_real, contentLayout).findViewById(R.id.fragment_repair_real_ll).setOnClickListener(this);
@@ -56,13 +60,13 @@ public class RepairFragment extends ContentFragment implements View.OnClickListe
                 }
                 break;
                 case RepairConstants.CELL_REPAIR_CONFIG: {//任务配置
-//                    inflater.inflate(R.layout.fragment_repair_config, contentLayout).findViewById(R.id.fragment_wechat_memberlist_ll).setOnClickListener(this);
+                    inflater.inflate(R.layout.fragment_repair_config, configLayout).findViewById(R.id.fragment_repair_config_ll).setOnClickListener(this);
                 }
                 break;
                 case RepairConstants.CELL_REPAIR_TASK: {//任务列表
                     RepairTaskFragment repairTaskFragment = new RepairTaskFragment();
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    ft.add(R.id.fragment_wechat_content_ll, repairTaskFragment);
+                    ft.add(R.id.fragment_repair_content_ll, repairTaskFragment);
                     ft.commit();
                 }
                 break;
@@ -79,6 +83,8 @@ public class RepairFragment extends ContentFragment implements View.OnClickListe
             startActivity(new Intent(getActivity(), RepairRealActivity.class));
         } else if (i == R.id.fragment_repair_engineer_ll) {//工程师列表
             startActivity(new Intent(getActivity(), RepairEngineerActivity.class));
+        } else if (i == R.id.fragment_repair_config_ll) {//配置
+            startActivity(new Intent(getActivity(), RepairConfigActivity.class));
         }
     }
 }

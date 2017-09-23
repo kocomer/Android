@@ -4,27 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="任务配置"
+            android:text="开立商户"
             android:textColor="@color/white" />
-
-
-    </RelativeLayout>
+    </LinearLayout>
 
     <fragment
-        android:id="@+id/activity_repair_config_content"
-        android:name="com.kocomer.repair.manager.fragment.config.RepairConfigFragment"
+        android:id="@+id/activity_pay_store_fragment"
+        android:name="com.kocomer.pay.manager.fragment.store.PayStoreFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></fragment>
-
-
 </LinearLayout>

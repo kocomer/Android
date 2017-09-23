@@ -18,19 +18,22 @@
             android:textColor="@color/white" />
 
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/fragment_repair_config_position_ll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/config_normal"
+            android:layout_marginRight="@dimen/fragment_item_margin"
+            android:clickable="true"
             android:gravity="center"
-            android:textColor="@color/white" />
+            android:orientation="vertical"></LinearLayout>
+
     </RelativeLayout>
 
 
     <LinearLayout
-        android:id="@+id/fragment_wechat_content_ll"
+        android:id="@+id/fragment_repair_content_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"></LinearLayout>

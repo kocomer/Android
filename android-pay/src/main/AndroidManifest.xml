@@ -9,6 +9,8 @@
         <activity android:name=".manager.activity.PayListActivity"></activity>
         <activity android:name=".manager.activity.PayWithdrawActivity"></activity>
         <activity android:name=".manager.activity.PayWithdrawSettingActivity"></activity>
+        <activity android:name=".manager.activity.PayStoreActivity"></activity>
+        <activity android:name=".manager.activity.PayStoreListActivity"></activity>
     </application>
 
 

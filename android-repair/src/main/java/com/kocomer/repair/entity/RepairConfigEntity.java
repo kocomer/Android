@@ -5,4 +5,17 @@ package com.kocomer.repair.entity;
  */
 
 public class RepairConfigEntity {
+    public RepairConfig[] repairConfigs;
+
+    public void createRepairConfig(int length) {
+        repairConfigs = new RepairConfig[length];
+        for (int i = 0; i < length; i++) {
+            repairConfigs[i] = new RepairConfig();
+        }
+    }
+
+    public class RepairConfig {
+        public String skill;//能力
+        public boolean available;//是否可用
+    }
 }

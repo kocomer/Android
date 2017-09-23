@@ -18,6 +18,8 @@ import com.kocomer.pay.manager.activity.PayHistoryActivity;
 import com.kocomer.pay.manager.activity.PayListActivity;
 import com.kocomer.pay.manager.activity.PayScanAlipayActivity;
 import com.kocomer.pay.manager.activity.PayScanWechatActivity;
+import com.kocomer.pay.manager.activity.PayStoreActivity;
+import com.kocomer.pay.manager.activity.PayStoreListActivity;
 import com.kocomer.pay.manager.activity.PayWithdrawActivity;
 import com.kocomer.pay.manager.activity.PayWithdrawSettingActivity;
 import com.kocomer.pay.helper.PayConstants;
@@ -80,6 +82,14 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
                     inflater.inflate(R.layout.fragment_pay_withdrawsetting, contentLayout).findViewById(R.id.fragment_pay_withdrawsetting_ll).setOnClickListener(this);
                 }
                 break;
+                case PayConstants.CELL_PAY_STORE: {
+                    inflater.inflate(R.layout.fragment_pay_store, contentLayout).findViewById(R.id.fragment_pay_store_ll).setOnClickListener(this);
+                }
+                break;
+                case PayConstants.CELL_PAY_STORELIST: {
+                    inflater.inflate(R.layout.fragment_pay_storelist, contentLayout).findViewById(R.id.fragment_pay_storelist_ll).setOnClickListener(this);
+                }
+                break;
 
             }
         }
@@ -138,6 +148,10 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
             startActivity(new Intent(getActivity(), PayWithdrawActivity.class));
         } else if (i == R.id.fragment_pay_withdrawsetting_ll) {
             startActivity(new Intent(getActivity(), PayWithdrawSettingActivity.class));
+        } else if (i == R.id.fragment_pay_store_ll) {
+            startActivity(new Intent(getActivity(), PayStoreActivity.class));
+        } else if (i == R.id.fragment_pay_storelist_ll) {
+            startActivity(new Intent(getActivity(), PayStoreListActivity.class));
         }
     }
 }

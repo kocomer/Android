@@ -29,6 +29,14 @@ public interface PayConstants {
      * 取现设置
      */
     String CELL_PAY_WITHDRAWSETTING = "pay_withdrawSetting";
+    /**
+     * 创建商户
+     */
+    String CELL_PAY_STORE = "pay_store";
+    /**
+     * 商户列表
+     */
+    String CELL_PAY_STORELIST = "pay_storeList";
 
 
     /**

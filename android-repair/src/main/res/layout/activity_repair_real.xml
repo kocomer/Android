@@ -20,5 +20,10 @@
 
     </RelativeLayout>
 
+    <fragment
+        android:id="@+id/activity_repair_real_content"
+        android:name="com.kocomer.repair.manager.fragment.real.RepairRealFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></fragment>
 
 </LinearLayout>

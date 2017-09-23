@@ -14,11 +14,11 @@ public interface Constants {
     String version = "0.0.4";
     String content = "更新日志：\n 1.更新UI";
 //        String STR_URL = "http://192.168.31.108:8080";
-//            String STR_URL = "http://192.168.31.63:8080";
+            String STR_URL = "http://192.168.31.63:8080";
 //    String STR_URL = "http://192.168.148.219:8080";
 //    String STR_URL = "https://pay.ipush.cc";
     //        String STR_URL = "http://mifi.ipush.cc";
-    String STR_URL = "http://192.168.150.130:8080";
+//    String STR_URL = "http://192.168.150.130:8080";
     String STR_CORPORATIONCODE = "corporationCode";
     String STR_PLATFORMFINGER = "platformFinger";
     String STR_USERSESSION = "userSession";
