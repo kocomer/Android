@@ -31,7 +31,6 @@ public class ObjectRequest<T> extends Request<T> {
         switch (jsonObject.getInt("result")) {
             case 0: {
                 return Response.success(analysis.analysis(jsonObject), HttpHeaderParser.parseCacheHeaders(response));
-
             }
             case 1: {
                 throw new JSONException(jsonObject.optString("msg"));

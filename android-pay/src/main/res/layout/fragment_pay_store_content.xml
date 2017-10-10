@@ -5,11 +5,31 @@
     android:orientation="vertical">
 
 
-    <fragment
-        android:id="@+id/fragment_pay_store_map_mv"
-        android:name="com.kocomer.map.fragment.MapFragment"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"></fragment>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/fragment_pay_store_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/fragment_pay_store_search_tv" />
+
+        <TextView
+            android:id="@+id/fragment_pay_store_search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="搜索" />
+    </RelativeLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/fragment_pay_store_map"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:clickable="true" />
 
     <ScrollView
         android:layout_width="match_parent"

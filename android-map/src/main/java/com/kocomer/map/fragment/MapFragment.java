@@ -88,11 +88,15 @@ public class MapFragment extends BaseFragment implements View.OnClickListener, B
 
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
-        baiduMap.setOnMapClickListener(this);
+        baiduMap.setOnMapClickListener(setOnMapClickListener());
 
 
         searchTv.setOnClickListener(this);
         return view;
+    }
+
+    public BaiduMap.OnMapClickListener setOnMapClickListener() {
+        return this;
     }
 
     @Override

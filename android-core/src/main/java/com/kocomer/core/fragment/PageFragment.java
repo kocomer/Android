@@ -5,13 +5,10 @@ import android.support.annotation.Nullable;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.analysis.Analysis;
 import com.android.volley.toolbox.ObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.kocomer.core.helper.Constants;
 import com.kocomer.core.helper.SesssionHelper;
 import com.kocomer.core.listener.PageListener;

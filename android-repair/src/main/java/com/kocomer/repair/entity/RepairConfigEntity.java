@@ -15,7 +15,10 @@ public class RepairConfigEntity {
     }
 
     public class RepairConfig {
-        public String skill;//能力
+        public String id;
+        public String img;//能力
+        public String name;//名称
+
         public boolean available;//是否可用
     }
 }

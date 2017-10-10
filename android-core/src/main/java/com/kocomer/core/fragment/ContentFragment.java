@@ -14,6 +14,7 @@ import com.android.volley.analysis.Analysis;
 import com.android.volley.toolbox.ObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kocomer.core.helper.Constants;
+import com.kocomer.core.helper.ImageHelper;
 import com.kocomer.core.helper.SesssionHelper;
 import com.kocomer.core.listener.ContentListener;
 
@@ -91,22 +92,22 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
      * @param analysis
      */
     public void loadContent(String url, final HashMap<String, String> params, Analysis analysis) {
-        this.loadContent(Request.Method.POST, url, params, analysis, ContentFragment.this);
+        this.loadContent(Request.Method.POST, url, params, null, analysis, ContentFragment.this);
     }
 
     public void loadContent(String url, Analysis analysis) {
-        this.loadContent(Request.Method.POST, url, null, analysis, ContentFragment.this);
+        this.loadContent(Request.Method.POST, url, null, null, analysis, ContentFragment.this);
     }
 
     public void loadContent(String url, final HashMap<String, String> params, Analysis analysis, ContentListener listener) {
-        this.loadContent(Request.Method.POST, url, params, analysis, listener);
+        this.loadContent(Request.Method.POST, url, params, null, analysis, listener);
     }
 
     public void loadContent(int method, String url, final HashMap<String, String> params, Analysis analysis) {
-        this.loadContent(method, url, params, analysis, ContentFragment.this);
+        this.loadContent(method, url, params, null, analysis, ContentFragment.this);
     }
 
-    public void loadContent(int method, String url, final HashMap<String, String> params, Analysis analysis, final ContentListener listener) {
+    public void loadContent(int method, String url, final HashMap<String, String> params, final ImageHelper[] imageHelpers, Analysis analysis, final ContentListener listener) {
         Request<Object> request = new ObjectRequest<Object>(method, url, new Response.Listener<Object>() {
             @Override
             public void onResponse(Object response) {
@@ -122,6 +123,11 @@ public abstract class ContentFragment extends BaseFragment implements ContentLis
         }, analysis) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                if (imageHelpers != null) {
+                    for (ImageHelper imageHelper : imageHelpers) {
+//                        params.put(imageHelper.name, imageHelper.data);
+                    }
+                }
                 return params;
             }
 

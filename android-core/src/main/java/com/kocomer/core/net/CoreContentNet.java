@@ -1,10 +1,7 @@
 package com.kocomer.core.net;
 
 
-import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
@@ -13,11 +10,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

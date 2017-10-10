@@ -8,5 +8,8 @@
         <activity android:name=".manager.activity.RepairEngineerActivity"></activity>
         <activity android:name=".manager.activity.RepairTaskActivity"></activity>
     </application>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 </manifest>
