@@ -37,6 +37,10 @@ public interface PayConstants {
      * 商户列表
      */
     String CELL_PAY_STORELIST = "pay_storeList";
+    /**
+     * 商户管理员
+     */
+    String CELL_PAY_STOREMANAGER = "pay_storemanager";
 
 
     /**

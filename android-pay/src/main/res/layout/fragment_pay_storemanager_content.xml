@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="所属商户" />
+
+    <Spinner
+        android:id="@+id/fragment_pay_storemanager_store_sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="所属角色" />
+
+    <Spinner
+        android:id="@+id/fragment_pay_storemanager_role_sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录手机号" />
+
+    <EditText
+        android:id="@+id/fragment_pay_storemanager_loginname_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="邀请码" />
+
+    <EditText
+        android:id="@+id/fragment_pay_storemanager_invite_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/fragment_pay_storemanager_submit_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="@dimen/fragment_item_margin"
+        android:text="创建" />
+</LinearLayout>

@@ -49,6 +49,7 @@ public abstract class PageFragment<T> extends ContentFragment implements PageLis
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
                 System.out.println("error ==== " + error + "iii");
                 listener.onPageAfter();
                 listener.onPageError(error);

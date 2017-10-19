@@ -1,4 +1,4 @@
-package com.kocomer.employee.fragment;
+package com.kocomer.employee.manager.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

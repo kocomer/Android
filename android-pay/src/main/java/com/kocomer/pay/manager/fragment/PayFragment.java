@@ -20,6 +20,7 @@ import com.kocomer.pay.manager.activity.PayScanAlipayActivity;
 import com.kocomer.pay.manager.activity.PayScanWechatActivity;
 import com.kocomer.pay.manager.activity.PayStoreActivity;
 import com.kocomer.pay.manager.activity.PayStoreListActivity;
+import com.kocomer.pay.manager.activity.PayStoreManagerActivity;
 import com.kocomer.pay.manager.activity.PayWithdrawActivity;
 import com.kocomer.pay.manager.activity.PayWithdrawSettingActivity;
 import com.kocomer.pay.helper.PayConstants;
@@ -90,6 +91,10 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
                     inflater.inflate(R.layout.fragment_pay_storelist, contentLayout).findViewById(R.id.fragment_pay_storelist_ll).setOnClickListener(this);
                 }
                 break;
+                case PayConstants.CELL_PAY_STOREMANAGER: {
+                    inflater.inflate(R.layout.fragment_pay_storemanager, contentLayout).findViewById(R.id.fragment_pay_storemanager_ll).setOnClickListener(this);
+                }
+                break;
 
             }
         }
@@ -152,6 +157,8 @@ public class PayFragment extends ContentFragment implements View.OnClickListener
             startActivity(new Intent(getActivity(), PayStoreActivity.class));
         } else if (i == R.id.fragment_pay_storelist_ll) {
             startActivity(new Intent(getActivity(), PayStoreListActivity.class));
+        } else if (i == R.id.fragment_pay_storemanager_ll) {
+            startActivity(new Intent(getActivity(), PayStoreManagerActivity.class));
         }
     }
 }

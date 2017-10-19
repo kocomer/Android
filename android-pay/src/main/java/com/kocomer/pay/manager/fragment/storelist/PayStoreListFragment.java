@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.analysis.Analysis;
 import com.kocomer.core.fragment.ContentFragment;
@@ -56,7 +57,7 @@ public class PayStoreListFragment extends PageFragment<PayStoreListEntity> imple
         listView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return 0;
+                return entity.payStores.length;
             }
 
             @Override
@@ -66,15 +67,30 @@ public class PayStoreListFragment extends PageFragment<PayStoreListEntity> imple
 
             @Override
             public long getItemId(int position) {
-                return 0;
+                return position;
             }
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_pay_storelist_content_item, null);
+                ViewHolder viewHolder = null;
+                if (convertView == null) {
+                    viewHolder = new ViewHolder();
+                    convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_pay_storelist_content_item, null);
+                    viewHolder.nameTv = (TextView) convertView.findViewById(R.id.fragment_pay_storelist_content_item_name_tv);
+                    viewHolder.statusTv = (TextView) convertView.findViewById(R.id.fragment_pay_storelist_content_item_status_tv);
+                    convertView.setTag(viewHolder);
+                } else {
+                    viewHolder = (ViewHolder) convertView.getTag();
+                }
+                viewHolder.nameTv.setText(entity.payStores[position].name);
+                viewHolder.statusTv.setText(entity.payStores[position].status);
                 return convertView;
             }
         });
     }
 
+    class ViewHolder {
+        TextView nameTv;
+        TextView statusTv;
+    }
 }

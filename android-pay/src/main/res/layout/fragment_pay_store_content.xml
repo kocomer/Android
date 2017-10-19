@@ -128,6 +128,38 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="经度" />
+
+                <EditText
+                    android:id="@+id/fragment_pay_store_content_longitude_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="纬度" />
+
+                <EditText
+                    android:id="@+id/fragment_pay_store_content_latitude_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="联系人" />
 
                 <EditText
@@ -147,14 +179,16 @@
                     android:text="联系电话" />
 
                 <EditText
-                    android:id="@+id/fragment_pay_store_content_linkphone_et"
+                    android:id="@+id/fragment_pay_store_content_phone_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
             <TextView
+                android:id="@+id/fragment_pay_store_content_submit_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
                 android:text="提交" />
         </LinearLayout>
     </ScrollView>

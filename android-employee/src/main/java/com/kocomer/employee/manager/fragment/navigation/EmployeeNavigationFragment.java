@@ -1,4 +1,4 @@
-package com.kocomer.employee.fragment.navigation;
+package com.kocomer.employee.manager.fragment.navigation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
